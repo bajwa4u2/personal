@@ -590,6 +590,46 @@ amendment to this document, by name, with reasoning.
 
 ---
 
+## Amendment 1 — Wordmark sufficiency principle (2026-06-01)
+
+**An identity is not required to possess a symbol.**
+
+**Wordmark-only identities are valid and preferred when they better
+express the doctrine than a decorative mark.**
+
+### Reasoning
+
+The original document (Sections 2 through 5) describes visual
+primitives that *may* emerge from each identity's meaning, but it does
+not yet make explicit that a primitive's emergence is permission, not
+obligation. This amendment closes that gap.
+
+A symbol earns its place in the ecosystem only when:
+
+1. The wordmark cannot carry the identity on its own at every
+   touchpoint the identity needs to reach.
+2. The symbol expresses something the wordmark cannot — not "looks
+   nicer", not "fills space", not "the favicon slot exists".
+3. The symbol does not compete with the wordmark for visual primacy.
+4. The symbol survives the restraint tests in Section 5 (no
+   gradients, no marketing voice, no startup register, no fashion-
+   house monogram performance).
+
+When any of those tests fails, the wordmark stands alone.
+
+### Consequence for the three pending visual briefs
+
+Each per-identity brief (`bajwawrites-visual-brief.md`,
+`founder-visual-brief.md`, `company-visual-brief.md`) must explicitly
+answer "does this identity require a symbol?" before proposing any
+visual primitive. A "no" answer is a complete answer — it is not a
+gap to be filled.
+
+The wordmark-only outcome is not a fallback. It is the default; a
+symbol is the exception that must justify itself.
+
+---
+
 ## Document provenance
 
 | Field | Value |
