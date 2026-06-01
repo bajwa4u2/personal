@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "the-burden-of-knowing",
+    "title": "The Burden of Knowing",
+    "category": "Faith · Ethics · Institutions",
+    "status": "Published",
+    "cover": "assets/books/the-burden-of-knowing.png",
+    "url": "https://bajwawrites.com",
+    "summary": "A reflection on the distance between knowing and applying. The book examines how guidance can remain present in words while becoming absent in systems, institutions, and public life. Rather than arguing about belief, it asks what responsibility remains after knowledge is already known."
+  },
+  {
+    "slug": "the-edge-of-knowing",
+    "title": "The Edge of Knowing",
+    "category": "Knowledge · Meaning · Responsibility",
+    "status": "Published",
+    "cover": "assets/books/the-edge-of-knowing.jpg",
+    "url": "https://bajwawrites.com",
+    "summary": "A work exploring the boundary between explanation and meaning. It challenges modern oppositional thinking between science and faith, restoring proportion between what can be explained, what must be understood, and what still calls the human being to responsibility."
+  },
+  {
+    "slug": "the-origin-of-you",
+    "title": "The Origin of You",
+    "category": "Origin · Conscience · Human Journey",
+    "status": "Published",
+    "cover": "assets/books/the-origin-of-you.png",
+    "url": "https://bajwawrites.com",
+    "summary": "A reflective exploration of human origin, conscience, guidance, and belonging. The book follows the question of who we are before labels, tribes, and inherited divisions, returning to the shared dignity and responsibility of the human person."
+  }
+]

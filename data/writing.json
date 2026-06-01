@@ -1,0 +1,6 @@
+{
+  "source": "static",
+  "generatedAt": "2026-05-31T00:00:00Z",
+  "note": "Static manifest. When Bajwa Writes exposes a public manifest endpoint, point scripts/writing-source.js at it; the shape below is the integration contract.",
+  "essays": []
+}

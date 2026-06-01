@@ -1,0 +1,429 @@
+/* ============================================================
+   Base — reset, body, typography, layout primitives.
+   Inherits tokens.css. Implements typography-system.md +
+   composition-systems.md doctrine.
+   ============================================================ */
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img, svg { display: block; max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* Tabular numerals in aggregates and citations */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Body */
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  font-feature-settings: 'ss01' on, 'cv01' on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography tiers */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--type-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--s4) 0;
+  color: var(--text-primary);
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--s4) 0;
+  color: var(--text-primary);
+}
+
+h3, .h3 {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-h3);
+  line-height: var(--lh-heading);
+  margin: 0 0 var(--s3) 0;
+  color: var(--text-primary);
+}
+
+h4, .h4 {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-h4);
+  line-height: var(--lh-heading);
+  margin: 0 0 var(--s2) 0;
+  color: var(--text-primary);
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  margin: 0 0 var(--s4) 0;
+  color: var(--text-primary);
+  max-width: 68ch;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--type-lead);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  opacity: var(--op-80);
+  max-width: 60ch;
+  margin: 0 0 var(--s6) 0;
+}
+
+small, .caption {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--type-caption);
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+}
+
+.mono-block {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Layout primitives */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-lg);
+  padding-right: var(--gutter-lg);
+}
+
+.section {
+  padding-top: var(--s24);
+  padding-bottom: var(--s24);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--motion-medium) var(--ease-out),
+    transform var(--motion-medium) var(--ease-out);
+}
+
+.section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section--hero {
+  padding-top: var(--s32);
+  padding-bottom: var(--s24);
+  opacity: 1;          /* hero is canonical on load — no entrance motion */
+  transform: none;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--type-caption);
+  color: var(--text-secondary);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin: 0 0 var(--s4) 0;
+}
+
+/* Substrate citation footer */
+.citation {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  font-weight: var(--weight-regular);
+  color: var(--text-secondary);
+  margin-top: var(--s8);
+  word-break: break-all;
+}
+
+.citation::before {
+  content: 'Source: ';
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+}
+
+/* Doctrine line */
+.doctrine {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--type-body);
+  font-style: italic;
+  color: var(--text-secondary);
+  border-left: 2px solid var(--accent);
+  padding-left: var(--s4);
+  margin: var(--s6) 0;
+  max-width: 60ch;
+}
+
+/* State chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s1) var(--s3);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-chip);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.chip--verdant { background: color-mix(in srgb, var(--co-verdant) 16%, transparent); color: var(--co-verdant); }
+.chip--sun     { background: color-mix(in srgb, var(--co-sun) 16%, transparent); color: var(--co-sun); }
+.chip--rose    { background: color-mix(in srgb, var(--co-rose) 16%, transparent); color: var(--co-rose); }
+.chip--teal    { background: color-mix(in srgb, var(--co-teal) 18%, transparent); color: var(--co-teal); }
+
+/* Navigation */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-overlay);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s4) var(--gutter-lg);
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.nav__wordmark {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.3px;
+}
+
+.nav__wordmark small {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: var(--weight-regular);
+  color: var(--text-secondary);
+  margin-left: var(--s2);
+  letter-spacing: 0;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--s6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__links a {
+  font-size: var(--type-body-small);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  transition: color var(--motion-fast) var(--ease-out);
+}
+
+.nav__links a:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 767px) {
+  .nav__links { display: none; }
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: var(--s12) var(--gutter-lg);
+  margin-top: var(--s24);
+}
+
+.footer__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s8);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links a {
+  font-size: var(--type-body-small);
+  color: var(--text-secondary);
+}
+
+.footer__links a:hover { color: var(--text-primary); }
+
+.footer__citation {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  color: var(--text-secondary);
+  max-width: 100%;
+  word-break: break-all;
+  margin-top: var(--s4);
+  flex-basis: 100%;
+}
+
+/*
+ * Institutional continuity band — shared across every public surface
+ * (Aura, Orchestrate, Bajwa Writes, company home). Subordinate to the
+ * product footer above it. Restrained typography: no display weights,
+ * no chips, no marketing language. The band's purpose is orientation,
+ * not promotion.
+ */
+.footer__ecosystem {
+  border-top: 1px solid var(--border);
+  margin-top: var(--s10);
+  padding-top: var(--s8);
+}
+.footer__ecosystem-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s6) var(--s10);
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer__ecosystem-institution {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+.footer__ecosystem-wordmark {
+  font-family: var(--font-display);
+  font-size: var(--type-body);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.footer__ecosystem-wordmark a {
+  color: inherit;
+  text-decoration: none;
+}
+.footer__ecosystem-caption {
+  font-family: var(--font-body);
+  font-size: var(--type-body-small);
+  color: var(--text-secondary);
+  margin: 0;
+}
+.footer__ecosystem-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s5) var(--s6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer__ecosystem-links li {
+  display: inline;
+}
+.footer__ecosystem-links a {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color var(--motion-fast, 160ms) ease, color var(--motion-fast, 160ms) ease;
+}
+.footer__ecosystem-links a:hover {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+.footer__ecosystem-links li[aria-current="page"] a {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
+/*
+ * Quiet institutional link in the nav (replaces / formalises the
+ * "by Aura Platform LLC" subscript on product pages). Architectural,
+ * not promotional.
+ */
+.nav__institutional {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color var(--motion-fast, 160ms) ease, color var(--motion-fast, 160ms) ease;
+}
+.nav__institutional:hover {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .footer__ecosystem-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s6);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

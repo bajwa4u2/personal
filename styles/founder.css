@@ -1,0 +1,982 @@
+/* ============================================================
+   Founder identity layer.
+
+   Inherits tokens + base + sections from the institutional canon
+   (`company/website/styles/*`). This file adds the founder-only
+   register: literary serif for biographical voice, a quiet
+   timeline grammar for the journey, an executive scale-table
+   without boast, a founder-portrait masthead, and the empty-state
+   pattern for surfaces (Conversations) that begin without
+   content but must read as deliberately reserved, not unfinished.
+
+   Visual doctrine
+   ---------------
+   • Calm before composition. Whitespace is the primary device.
+   • Serif italic carries biographical and literary voice
+     (Source Serif 4) — never display weight, never set in
+     uppercase.
+   • Mono is used only for the eyebrow labels that organize the
+     page (e.g. "1991–2000  ·  Pakistan Army"), echoing the
+     institutional grammar.
+   • The accent (--accent) appears sparingly. It marks the
+     foreground of the figure: a left-rule on the doctrine block,
+     a 2px underline under the active nav link, the dot on the
+     timeline rail.
+   • No skill bars, no percentages, no "founder strengths" cards,
+     no resume-download CTA. The founder is biography, not
+     specification.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Mobile overflow safety net.
+
+   The institutional canon's hero / section H1+H2 use large display
+   sizes that can exceed narrow viewports if a single word is long;
+   the lead and body paragraphs occasionally bleed when fonts load
+   late. Clamp the body to viewport width and force long words to
+   break, on every page. This is a pure safety net — it never
+   triggers on well-sized text.
+   ------------------------------------------------------------ */
+html, body { overflow-x: clip; }
+
+h1, h2, h3, h4,
+.hero__title, .hero__lead,
+.flagship-section__title, .flagship-section__lead,
+.founder-mast__name, .founder-mast__roles, .founder-mast__statement,
+.page-header__title, .page-header__lead,
+.journey__title, .journey__body,
+.venture__name, .venture__desc,
+.essay__title, .essay__excerpt,
+.empty-state__title, .empty-state__body,
+.contact__name, .contact__role,
+.doctrine, p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* ------------------------------------------------------------
+   Literary register — applied as a register class on a section
+   so the biographical voice can opt in without leaking to lists,
+   chips, or footers.
+   ------------------------------------------------------------ */
+.register-literary {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+.register-literary .lead,
+.register-literary p {
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+@media (min-width: 1024px) {
+  .register-literary .lead,
+  .register-literary p {
+    font-size: 21px;
+  }
+}
+
+/* ------------------------------------------------------------
+   Founder hero. The portrait sits to the right of the masthead on
+   desktop; on mobile it stacks above. Restrained sizing — the
+   portrait reads as an executive identity image, not a hero image
+   and not a profile-picture chip.
+   ------------------------------------------------------------ */
+.founder-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s6);
+  padding-top: var(--s8);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .founder-hero {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: var(--s10);
+    padding-top: var(--s10);
+  }
+}
+
+@media (min-width: 1024px) {
+  .founder-hero {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: var(--s12);
+  }
+}
+
+.founder-portrait-frame {
+  /* On mobile, the portrait sits at the top of the column at a
+     restrained width — never the dominant element. */
+  width: 100%;
+  max-width: 220px;
+  margin: 0;
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .founder-portrait-frame {
+    /* On tablet+, the column itself constrains the size; max-width
+       releases so the image fills its column track. */
+    max-width: 100%;
+    order: 0;
+    position: sticky;
+    top: calc(var(--s10));
+  }
+}
+
+.founder-portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  /* Focal point slightly above center so the face anchors the
+     frame rather than the chest. The image is 1200×1600 portrait. */
+  object-position: 50% 30%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  /* Calmer chroma — keeps the photograph in the same restrained
+     register as the rest of the surface; not a saturated brand
+     headshot. */
+  filter: saturate(0.92) contrast(0.98);
+}
+
+/* ------------------------------------------------------------
+   Founder masthead. Used on the home hero. Identity block —
+   eyebrow + name + serif-italic roles + statement.
+   ------------------------------------------------------------ */
+.founder-mast {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s5);
+  padding-top: 0;
+  max-width: 880px;
+}
+
+.founder-mast__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.founder-mast__name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: clamp(44px, 8vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.founder-mast__roles {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.4;
+  color: var(--text-primary);
+  opacity: 0.86;
+  margin: 0;
+  max-width: 28ch;
+}
+
+.founder-mast__statement {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--type-lead);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  opacity: 0.78;
+  max-width: 60ch;
+  margin: var(--s4) 0 0 0;
+}
+
+/* ------------------------------------------------------------
+   Identity arc — the four-stage horizontal line under the
+   masthead that compresses the biography into a single trace:
+   Military Communications → Infrastructure Operations →
+   Executive Leadership → Platform Creation.
+   ------------------------------------------------------------ */
+.identity-arc {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s4);
+  margin-top: var(--s10);
+  padding-top: var(--s6);
+  border-top: 1px solid var(--border);
+}
+
+.identity-arc__stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.identity-arc__index {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.identity-arc__title {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.identity-arc__caption {
+  font-family: var(--font-body);
+  font-size: var(--type-body-small);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .identity-arc {
+    grid-template-columns: 1fr;
+    gap: var(--s5);
+  }
+}
+
+/* ------------------------------------------------------------
+   Founder nav — the institutional nav from base.css already
+   covers the structural grammar (sticky, blurred, wordmark +
+   links). The founder layer marks the active page with the
+   accent underline and tightens the wordmark to a quieter
+   set-up (no "LLC" trailing).
+   ------------------------------------------------------------ */
+.nav__links a[aria-current="page"] {
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* ------------------------------------------------------------
+   Journey — the timeline grammar.
+
+   Each entry is a row composed of an eyebrow (mono dates +
+   institution), a body title (h3), a paragraph of biographical
+   prose, and an optional list of responsibilities. The rail on
+   the left is a 1px line; entries align to it with a small dot
+   at the eyebrow baseline.
+   ------------------------------------------------------------ */
+.journey {
+  border-left: 1px solid var(--border);
+  padding-left: var(--s8);
+  position: relative;
+  margin-top: var(--s8);
+}
+
+.journey__entry {
+  position: relative;
+  padding-bottom: var(--s16);
+}
+
+.journey__entry:last-child {
+  padding-bottom: 0;
+}
+
+.journey__entry::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--s8) - 5px);
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+
+.journey__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 0 0 var(--s2) 0;
+  text-transform: uppercase;
+}
+
+.journey__title {
+  font-family: var(--font-display);
+  font-size: var(--type-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  margin: 0 0 var(--s3) 0;
+  overflow-wrap: break-word;
+}
+
+.journey__body {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  opacity: 0.88;
+  max-width: 60ch;
+  margin: 0 0 var(--s4) 0;
+}
+
+.journey__responsibilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s2) var(--s5);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 56ch;
+}
+
+.journey__responsibilities li {
+  font-family: var(--font-body);
+  font-size: var(--type-body-small);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.journey__responsibilities li::before {
+  content: '·';
+  color: var(--accent);
+  margin-right: var(--s2);
+  font-weight: 700;
+}
+
+@media (max-width: 639px) {
+  .journey {
+    padding-left: var(--s6);
+  }
+  .journey__entry::before {
+    left: calc(-1 * var(--s6) - 5px);
+  }
+  .journey__responsibilities {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------------
+   Executive scale — the disciplined "facts in figures" table.
+   Set in tabular numerals; restrained label; no bar charts, no
+   percentages, no callouts.
+   ------------------------------------------------------------ */
+.scale {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--s5);
+  margin-top: var(--s6);
+  padding-top: var(--s6);
+  border-top: 1px solid var(--border);
+}
+
+.scale__cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.scale__figure {
+  font-family: var(--font-display);
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  font-weight: var(--weight-semibold);
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.scale__label {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Representative organizations — a simple comma-and-line list,
+   not a logo wall. Substrate over performance. */
+.representatives {
+  margin-top: var(--s8);
+  padding-top: var(--s6);
+  border-top: 1px solid var(--border);
+  max-width: 80ch;
+}
+
+.representatives__label {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 var(--s3) 0;
+}
+
+.representatives__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.representatives__list li {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.representatives__list li + li::before {
+  content: '·';
+  color: var(--accent);
+  margin-right: var(--s4);
+}
+
+/* ------------------------------------------------------------
+   Ventures triptych — three equal pillars, founder framing.
+   Reuses the institutional triptych pattern from index.html
+   inline styles, restated here as a stable class so the founder
+   site does not depend on inline styles from a sibling page.
+   ------------------------------------------------------------ */
+.ventures {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s10);
+  margin-top: var(--s6);
+}
+
+@media (min-width: 1024px) {
+  .ventures {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s8);
+  }
+}
+
+.venture {
+  padding-top: var(--s5);
+  border-top: 1px solid var(--border);
+}
+
+.venture__name {
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--s2) 0;
+  color: var(--text-primary);
+}
+
+.venture__name--literary {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.venture__role {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 0 0 var(--s5) 0;
+  text-transform: uppercase;
+}
+
+.venture__desc {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  opacity: 0.88;
+  margin: 0 0 var(--s5) 0;
+  max-width: 40ch;
+}
+
+.venture__desc--literary {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.venture__link {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  letter-spacing: 0.04em;
+  transition: border-color var(--motion-fast) var(--ease-out);
+}
+
+.venture__link:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   Writing — essay list. Each entry is a row, not a card, so the
+   layout reads as a publication-house index rather than a blog
+   grid. Title sets in serif; date and kind in mono.
+   ------------------------------------------------------------ */
+.essays {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  margin-top: var(--s6);
+}
+
+.essay {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) 1fr;
+  gap: var(--s5);
+  padding: var(--s5) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 639px) {
+  .essay {
+    grid-template-columns: 1fr;
+    gap: var(--s2);
+  }
+}
+
+.essay__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.essay__date {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.essay__kind {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.essay__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 0 0 var(--s2) 0;
+  letter-spacing: -0.005em;
+}
+
+@media (min-width: 768px) {
+  .essay__title { font-size: 28px; }
+}
+
+.essay__title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--motion-fast) var(--ease-out);
+}
+
+.essay__title a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.essay__excerpt {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  opacity: 0.82;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* Source line — quiet attribution to Bajwa Writes. */
+.essays__source {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  margin-top: var(--s6);
+}
+
+.essays__source a {
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color var(--motion-fast) var(--ease-out);
+}
+
+.essays__source a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ------------------------------------------------------------
+   Selected Works · Books.
+
+   Calm, restrained grid — three covers across on desktop, two on
+   tablet, one on mobile. Each tile is just cover + title, set in
+   serif. Reads as a small collectible shelf, not a storefront:
+   no prices, no "buy", no metrics, no add-to-cart.
+
+   Covers are constrained to a 2:3 aspect ratio with object-fit:
+   cover so square or 3:4 inputs are center-cropped to the canon.
+   ------------------------------------------------------------ */
+.books {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s8);
+  margin-top: var(--s6);
+}
+
+@media (min-width: 600px) {
+  .books {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s8) var(--s6);
+  }
+}
+
+@media (min-width: 900px) {
+  .books {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s10) var(--s8);
+  }
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.book__cover-frame {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  /* Soft shadow so the cover floats off the page slightly — calm,
+     not promotional. */
+  box-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.6);
+  transition: border-color var(--motion-fast) var(--ease-out),
+              transform var(--motion-fast) var(--ease-out);
+}
+
+.book__cover-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.book__cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.book__cover-frame:hover {
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--border));
+  transform: translateY(-2px);
+}
+
+.book__meta {
+  padding: 0 var(--s1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.book__category {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+
+.book__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.book__title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--motion-fast) var(--ease-out);
+}
+
+.book__title a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.book__status {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.book__summary {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text-primary);
+  opacity: 0.84;
+  margin: var(--s2) 0 0 0;
+  max-width: 44ch;
+}
+
+/* Compact tile used on the home-page Selected Works preview — drops
+   the summary and tightens the title so the row reads as a
+   restrained shelf, not a detail page. */
+.book--compact .book__summary { display: none; }
+.book--compact .book__title { font-size: 19px; }
+
+/* Author posture — quiet paragraph block introducing the writing
+   page. Set in literary serif, with the institutional accent rule
+   on the left, matching the .doctrine pattern but with more air. */
+.author-posture {
+  border-left: 2px solid var(--accent);
+  padding: var(--s4) 0 var(--s4) var(--s6);
+  margin: 0 0 var(--s10) 0;
+  max-width: 64ch;
+}
+
+.author-posture__label {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s3) 0;
+}
+
+.author-posture p {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  opacity: 0.92;
+  margin: 0 0 var(--s3) 0;
+}
+
+.author-posture p:last-child { margin-bottom: 0; }
+
+/* ------------------------------------------------------------
+   Empty state — used on Conversations (today) and Writing (when
+   the data source is empty). Reads as deliberate quiet, not a
+   missing page.
+   ------------------------------------------------------------ */
+.empty-state {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--s10) var(--s8);
+  margin-top: var(--s6);
+  max-width: 720px;
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+}
+
+.empty-state__label {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s3) 0;
+}
+
+.empty-state__title {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 0 0 var(--s4) 0;
+  max-width: 28ch;
+}
+
+.empty-state__body {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: 1.6;
+  color: var(--text-primary);
+  opacity: 0.78;
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ------------------------------------------------------------
+   Contact — two-column stack of identity + channels. No form;
+   no booking widget; no "let's chat" CTA. Email + structured
+   external links only.
+   ------------------------------------------------------------ */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s10);
+  margin-top: var(--s6);
+}
+
+@media (min-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s12);
+  }
+}
+
+.contact__identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.contact__name {
+  font-family: var(--font-display);
+  font-size: var(--type-h3);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.contact__role {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--text-primary);
+  opacity: 0.86;
+  margin: 0 0 var(--s4) 0;
+  max-width: 32ch;
+}
+
+.contact__email {
+  font-family: var(--font-mono);
+  font-size: var(--type-body);
+  color: var(--accent);
+  margin: 0 0 var(--s2) 0;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color var(--motion-fast) var(--ease-out);
+  display: inline-block;
+}
+
+.contact__email:hover {
+  border-bottom-color: var(--accent);
+}
+
+.contact__channels {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.contact__channels a {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--s2);
+  display: block;
+  transition: color var(--motion-fast) var(--ease-out),
+              border-color var(--motion-fast) var(--ease-out);
+}
+
+.contact__channels a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.contact__channel-label {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ------------------------------------------------------------
+   Section header — page-level title shared by /journey,
+   /ventures, /writing, /conversations, /contact. Quieter than
+   the home masthead; the founder is the constant subject so
+   each page-title role is the topic, not the person.
+   ------------------------------------------------------------ */
+.page-header {
+  padding-top: var(--s16);
+  padding-bottom: var(--s10);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--s10);
+}
+
+.page-header__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 var(--s3) 0;
+}
+
+.page-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 6vw, 64px);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin: 0 0 var(--s4) 0;
+  max-width: 22ch;
+  overflow-wrap: break-word;
+}
+
+.page-header__lead {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  opacity: 0.84;
+  margin: 0;
+  max-width: 56ch;
+}
