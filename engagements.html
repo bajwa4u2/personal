@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en" data-register="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engage — M S Bajwa</title>
+<meta name="description" content="Select paid engagements are accepted each year — strategic advisory, architecture review, and specialized work. Founder-led, scoped, and chosen for fit. Muhammad Sakhawat Bajwa, Founder & CEO, Aura Platform LLC.">
+<meta name="author" content="Muhammad Sakhawat Bajwa">
+<meta name="theme-color" content="#0E1326">
+
+<link rel="canonical" href="https://bajwa.auraplatform.org/engagements">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="M S Bajwa">
+<meta property="og:title" content="Engage — M S Bajwa">
+<meta property="og:description" content="Select paid engagements are accepted each year — advisory, architecture review, and specialized work. Founder-led, scoped, chosen for fit.">
+<meta property="og:url" content="https://bajwa.auraplatform.org/engagements">
+<meta property="og:image" content="https://bajwa.auraplatform.org/assets/social/og-bajwa.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Engage — M S Bajwa">
+<meta name="twitter:description" content="Select paid engagements are accepted each year — advisory, architecture review, and specialized work.">
+<meta name="twitter:image" content="https://bajwa.auraplatform.org/assets/social/og-bajwa.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&display=swap">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/sections.css">
+<link rel="stylesheet" href="styles/founder.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Engage — M S Bajwa",
+  "url": "https://bajwa.auraplatform.org/engagements",
+  "description": "Select paid engagements are accepted each year — strategic advisory, architecture review, and specialized work. Founder-led, scoped, and chosen for fit.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "M S Bajwa",
+    "url": "https://bajwa.auraplatform.org/"
+  },
+  "about": {
+    "@type": "Person",
+    "name": "Muhammad Sakhawat Bajwa",
+    "alternateName": "M S Bajwa",
+    "jobTitle": "Founder, Operations Executive, Platform Architect",
+    "url": "https://bajwa.auraplatform.org/",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Aura Platform LLC",
+      "url": "https://auraplatform.org/"
+    }
+  }
+}
+</script>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<style>
+  /* Scoped to /engagements. Composed from shared tokens only — no new design
+     language. The engagement boundary line, the evidence prominence, and the
+     inquiry form reuse existing surface, border, radius, type, and motion
+     tokens. There are no screenshots, counters, testimonials, or feature grids. */
+
+  /* Engagement boundary — the calm, noun-first refusal line under each
+     engagement (echoes the institutional "Not a CRM. Not an AI SDR." grammar). */
+  .engagement__boundary {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.03em;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Evidence — restrained. Orchestrate is the primary reference; Aura and
+     Bajwa Writes sit beneath as secondary evidence. Products appear only as
+     proof of execution, never as a product brochure. */
+  .evidence-card--primary { border-color: var(--accent); }
+  .evidence__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s3) var(--s5);
+    margin-top: var(--s2);
+  }
+  .evidence__link {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color var(--motion-fast) var(--ease-out);
+  }
+  .evidence__link:hover { border-bottom-color: var(--accent); }
+
+  /* Request an engagement — a structured inquiry. No scheduler, no booking
+     widget, no instant-appointment system; the founder doctrine is preserved. */
+  .inquiry { max-width: 760px; margin-top: var(--s6); }
+  .inquiry__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s5);
+  }
+  @media (min-width: 768px) {
+    .inquiry__grid { grid-template-columns: 1fr 1fr; gap: var(--s5) var(--s6); }
+  }
+  .inquiry__field { display: flex; flex-direction: column; gap: var(--s2); }
+  .inquiry__field--full { grid-column: 1 / -1; }
+  .inquiry__label {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .inquiry__optional {
+    text-transform: none;
+    letter-spacing: 0;
+    opacity: 0.7;
+  }
+  .inquiry__input {
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    color: var(--text-primary);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--s3) var(--s4);
+    width: 100%;
+    transition: border-color var(--motion-fast) var(--ease-out);
+  }
+  .inquiry__input::placeholder { color: var(--text-secondary); opacity: 0.7; }
+  .inquiry__input:focus { outline: none; border-color: var(--accent); }
+  .inquiry__input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .inquiry__textarea { resize: vertical; min-height: 140px; line-height: var(--lh-body); }
+  .inquiry__hint {
+    font-family: var(--font-body);
+    font-size: var(--type-body-small);
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .inquiry__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s5) var(--s6);
+    margin-top: var(--s8);
+  }
+  .inquiry__alt {
+    font-family: var(--font-body);
+    font-size: var(--type-body-small);
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .inquiry__alt a { color: var(--accent); border-bottom: 1px solid transparent; padding-bottom: 1px; }
+  .inquiry__alt a:hover { border-bottom-color: var(--accent); }
+  .inquiry__status {
+    font-family: var(--font-body);
+    font-size: var(--type-body-small);
+    color: var(--text-primary);
+    margin: var(--s5) 0 0 0;
+    min-height: 1.2em;
+  }
+  .inquiry__status[data-state="error"] { color: var(--co-rose); }
+  .inquiry__status[data-state="success"] { color: var(--co-verdant); }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="nav__wordmark" href="index.html">M S Bajwa</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Story</a></li>
+      <li><a href="journey.html">Journey</a></li>
+      <li><a href="ventures.html">Ventures</a></li>
+      <li><a href="writing.html">Works</a></li>
+      <li><a href="conversations.html">Conversations</a></li>
+      <li><a href="engagements.html" aria-current="page">Engage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<header class="container">
+  <div class="page-header">
+    <p class="page-header__eyebrow">Engagement</p>
+    <h1 class="page-header__title">A narrow door for founder-led work.</h1>
+    <p class="page-header__lead">Select paid engagements are accepted each year — strategic advisory, architecture review, and specialized work. Scoped, deliberate, and chosen for fit.</p>
+  </div>
+</header>
+
+<!-- POSTURE — founder identity remains primary; the lane is secondary -->
+<section class="section">
+  <div class="container-narrow register-literary">
+    <p class="section-label">Posture</p>
+    <p class="doctrine">The work of Aura Platform LLC comes first. A small number of outside engagements are taken each year, where the problem is institutional, the scope is defined, and the fit is clear. This is a door, not a storefront — the founder remains the constant; the engagement is the exception.</p>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS — three forms, founder framing, noun-first -->
+<section class="section">
+  <div class="container">
+    <div class="flagship-section">
+      <div class="flagship-section__header">
+        <p class="section-label">Engagements</p>
+        <h2 class="flagship-section__title">Three forms of engagement.</h2>
+        <p class="flagship-section__lead">Each is bounded, fee-based, and led by the founder. None is open-ended. Scope and terms are set per engagement, in correspondence — there is no rate card and no booking widget.</p>
+      </div>
+      <div class="ventures">
+        <article class="venture" aria-labelledby="eng-advisory">
+          <h3 class="venture__name" id="eng-advisory">Strategic advisory</h3>
+          <p class="venture__role">Institutional · operational · governance</p>
+          <p class="venture__desc">Advisory on institutional strategy, operations, governance models, platform direction, and execution — drawn from three decades of operating and building. Engagements answer a defined question, not an open relationship.</p>
+          <p class="engagement__boundary">Not coaching. Not mentoring. Not fractional employment.</p>
+        </article>
+        <article class="venture" aria-labelledby="eng-architecture">
+          <h3 class="venture__name" id="eng-architecture">Architecture review</h3>
+          <p class="venture__role">Systems · platforms · continuity</p>
+          <p class="venture__desc">A structured examination of software systems, platforms, governance models, execution architectures, continuity systems, and operational designs. The outcome is a written record of findings and direction.</p>
+          <p class="engagement__boundary">Deliverable-oriented. Not hourly consulting.</p>
+        </article>
+        <article class="venture" aria-labelledby="eng-custom">
+          <h3 class="venture__name" id="eng-custom">Custom engagement</h3>
+          <p class="venture__role">Specialized · scoped · institutional</p>
+          <p class="venture__desc">Specialized engagements that do not fit a predefined category. Where the problem is institutional and the scope can be made clear, the form is defined together before any engagement begins.</p>
+          <p class="engagement__boundary">Defined per problem. Accepted by fit.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE — restrained; products shown only as proof of execution -->
+<section class="section">
+  <div class="container">
+    <div class="flagship-section__header">
+      <p class="section-label">Evidence</p>
+      <h2 class="flagship-section__title" style="font-size: clamp(28px, 3.6vw, 40px); max-width: 26ch;">The record is the proof.</h2>
+      <p class="flagship-section__lead">These are the products of Aura Platform LLC, shown here as evidence of execution — not as a catalogue. The clearest proof is a running system you can open yourself.</p>
+    </div>
+
+    <div class="product-cards" style="grid-template-columns: 1fr;">
+      <article class="product-card evidence-card--primary">
+        <h3 class="product-card__name">Orchestrate</h3>
+        <p class="product-card__sub">Governed execution infrastructure · live</p>
+        <p class="product-card__desc">A running system with public diagnostics and public pricing — the most direct evidence of execution. Open it, run the diagnostics against your own domain, and read the pricing without speaking to anyone.</p>
+        <div class="evidence__links">
+          <a class="evidence__link" href="https://orchestrateops.com" rel="noopener" target="_blank">Live product →</a>
+          <a class="evidence__link" href="https://orchestrateops.com/diagnostics" rel="noopener" target="_blank">Diagnostics →</a>
+          <a class="evidence__link" href="https://orchestrateops.com/pricing" rel="noopener" target="_blank">Pricing →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="two-up" style="margin-top: var(--s8);">
+      <article class="product-card">
+        <h3 class="product-card__name">Aura</h3>
+        <p class="product-card__sub">Accountable communication infrastructure</p>
+        <p class="product-card__desc">Governance, institutional architecture, and typed accountability for institutional speech — evidence of the governance pattern at the communication layer.</p>
+        <a class="product-card__link" href="https://auraplatform.org" rel="noopener" target="_blank">Open Aura</a>
+      </article>
+      <article class="product-card">
+        <h3 class="product-card__name">Bajwa Writes</h3>
+        <p class="product-card__sub">Preservation-first publishing infrastructure</p>
+        <p class="product-card__desc">Continuity, authored permanence, and preservation — evidence of long-horizon thinking: bound editions sealed to their source revision, built to outlast the platform.</p>
+        <a class="product-card__link" href="https://bajwawrites.com/" rel="noopener" target="_blank">Open Bajwa Writes</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- REQUEST AN ENGAGEMENT — structured inquiry; no scheduler, no funnel -->
+<section class="section">
+  <div class="container">
+    <div class="flagship-section__header">
+      <p class="section-label">Request an engagement</p>
+      <h2 class="flagship-section__title" style="font-size: clamp(28px, 3.6vw, 40px); max-width: 24ch;">A considered inquiry.</h2>
+      <p class="flagship-section__lead">If an engagement fits, describe it below. Inquiries are routed by type and answered personally. There is no call to book and no automated reply.</p>
+    </div>
+
+    <form class="inquiry" id="engagement-inquiry" novalidate
+          data-recipient="msbajwa@auraplatform.org">
+      <div class="inquiry__grid">
+        <div class="inquiry__field">
+          <label class="inquiry__label" for="inq-name">Name</label>
+          <input class="inquiry__input" id="inq-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="inquiry__field">
+          <label class="inquiry__label" for="inq-organization">Organization</label>
+          <input class="inquiry__input" id="inq-organization" name="organization" type="text" autocomplete="organization" required>
+        </div>
+        <div class="inquiry__field">
+          <label class="inquiry__label" for="inq-type">Engagement type</label>
+          <select class="inquiry__input" id="inq-type" name="engagementType" required>
+            <option value="" disabled selected>Select an engagement type</option>
+            <option value="strategic-advisory">Strategic advisory</option>
+            <option value="architecture-review">Architecture review</option>
+            <option value="custom">Custom engagement</option>
+          </select>
+        </div>
+        <div class="inquiry__field">
+          <label class="inquiry__label" for="inq-timeline">Timeline</label>
+          <input class="inquiry__input" id="inq-timeline" name="timeline" type="text" placeholder="e.g. Q3 2026, or exploratory" required>
+        </div>
+        <div class="inquiry__field inquiry__field--full">
+          <label class="inquiry__label" for="inq-website">Website <span class="inquiry__optional">— optional</span></label>
+          <input class="inquiry__input" id="inq-website" name="website" type="url" autocomplete="url" inputmode="url" placeholder="https://">
+        </div>
+        <div class="inquiry__field inquiry__field--full">
+          <label class="inquiry__label" for="inq-description">Description</label>
+          <textarea class="inquiry__input inquiry__textarea" id="inq-description" name="description" required aria-describedby="inq-description-hint"></textarea>
+          <p class="inquiry__hint" id="inq-description-hint">The institution, the problem, and what a successful engagement would resolve.</p>
+        </div>
+      </div>
+
+      <div class="inquiry__actions">
+        <button class="cta cta--primary" type="submit">Send inquiry</button>
+        <p class="inquiry__alt">Or write directly to <a href="mailto:msbajwa@auraplatform.org">msbajwa@auraplatform.org</a>.</p>
+      </div>
+
+      <p class="inquiry__status" id="inquiry-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 0 0 var(--s2) 0;">M S Bajwa</p>
+      <p style="font-family: var(--font-body); font-size: var(--type-body-small); color: var(--text-secondary); margin: 0;">Founder &amp; CEO, Aura Platform LLC.</p>
+    </div>
+    <ul class="footer__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="journey.html">Journey</a></li>
+      <li><a href="ventures.html">Ventures</a></li>
+      <li><a href="writing.html">Works</a></li>
+      <li><a href="conversations.html">Conversations</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" data-register-toggle aria-label="Toggle light or dark theme">Light / Dark</a></li>
+    </ul>
+  </div>
+
+  <div class="footer__ecosystem" aria-label="Institutional continuity">
+    <div class="footer__ecosystem-inner">
+      <div class="footer__ecosystem-institution">
+        <p class="footer__ecosystem-wordmark"><a href="https://company.auraplatform.org" rel="noopener">Aura Platform LLC</a></p>
+        <p class="footer__ecosystem-caption">Discourse continuity · Operational continuity · Literary continuity</p>
+      </div>
+      <ul class="footer__ecosystem-links">
+        <li><a href="https://company.auraplatform.org" rel="noopener">Company</a></li>
+        <li><a href="https://auraplatform.org" rel="noopener">Aura</a></li>
+        <li><a href="https://orchestrateops.com" rel="noopener">Orchestrate</a></li>
+        <li><a href="https://bajwawrites.com/" rel="noopener">Bajwa Writes</a></li>
+        <li aria-current="page"><a href="index.html">Founder</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/scroll.js" defer></script>
+<script src="scripts/engagements-inquiry.js" defer></script>
+</body>
+</html>

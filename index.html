@@ -38,24 +38,94 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Muhammad Sakhawat Bajwa",
-  "alternateName": "M S Bajwa",
-  "jobTitle": "Founder, Operations Executive, Platform Architect",
-  "url": "https://bajwa.auraplatform.org/",
-  "email": "mailto:msbajwa@auraplatform.org",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Aura Platform LLC",
-    "url": "https://auraplatform.org/"
-  },
-  "knowsAbout": [
-    "Accountable communication infrastructure",
-    "Revenue execution infrastructure",
-    "Literary and preservation infrastructure",
-    "Operations leadership",
-    "Tendering and procurement",
-    "Platform architecture"
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://bajwa.auraplatform.org/#profilepage",
+      "url": "https://bajwa.auraplatform.org/",
+      "name": "M S Bajwa — Founder, Operations Executive, Platform Architect",
+      "mainEntity": { "@id": "https://bajwa.auraplatform.org/#person" },
+      "isPartOf": { "@id": "https://bajwa.auraplatform.org/#website" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bajwa.auraplatform.org/#website",
+      "url": "https://bajwa.auraplatform.org/",
+      "name": "M S Bajwa",
+      "about": { "@id": "https://bajwa.auraplatform.org/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://bajwa.auraplatform.org/#person",
+      "name": "Muhammad Sakhawat",
+      "alternateName": ["M S Bajwa", "Muhammad Sakhawat Bajwa"],
+      "disambiguatingDescription": "Founder and CEO of Aura Platform LLC; not affiliated with Aura Inc. (aura.com), the consumer digital-security company.",
+      "jobTitle": "Founder & CEO",
+      "description": "Founder, operations executive, and platform architect. Founder & CEO of Aura Platform LLC — building systems for communication, accountability, continuity, and execution.",
+      "url": "https://bajwa.auraplatform.org/",
+      "email": "mailto:msbajwa@auraplatform.org",
+      "worksFor": { "@id": "https://company.auraplatform.org/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/msbajwa/"],
+      "knowsAbout": [
+        "Accountable communication infrastructure",
+        "Revenue execution infrastructure",
+        "Literary and preservation infrastructure",
+        "Operations leadership",
+        "Tendering and procurement",
+        "Platform architecture"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://company.auraplatform.org/#organization",
+      "name": "Aura Platform LLC",
+      "legalName": "Aura Platform LLC",
+      "url": "https://company.auraplatform.org/",
+      "logo": "https://company.auraplatform.org/assets/icons/android-chrome-512x512.png",
+      "foundingDate": "2026",
+      "disambiguatingDescription": "Institutional continuity-infrastructure company behind the products Aura, Orchestrate, and Bajwa Writes; distinct from Aura Inc. (aura.com) and other 'Aura'- or 'Orchestrate'-branded products.",
+      "founder": { "@id": "https://bajwa.auraplatform.org/#person" },
+      "owns": [
+        { "@id": "https://auraplatform.org/#product" },
+        { "@id": "https://orchestrateops.com/#product" },
+        { "@id": "https://bajwawrites.com/#product" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://auraplatform.org/#product",
+      "name": "Aura",
+      "url": "https://auraplatform.org/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android, Windows",
+      "description": "Accountable communication infrastructure — verified-identity civic discourse with typed accountability and deterministic open commitments.",
+      "publisher": { "@id": "https://company.auraplatform.org/#organization" },
+      "brand": { "@id": "https://company.auraplatform.org/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://orchestrateops.com/#product",
+      "name": "Orchestrate",
+      "url": "https://orchestrateops.com/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Revenue execution infrastructure — governed managed-outbound execution where refusal is a first-class outcome and deterministic governors run beneath every action.",
+      "publisher": { "@id": "https://company.auraplatform.org/#organization" },
+      "brand": { "@id": "https://company.auraplatform.org/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://bajwawrites.com/#product",
+      "name": "Bajwa Writes",
+      "url": "https://bajwawrites.com/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Literary and preservation infrastructure — preservation-first publishing with append-only revisions and bound editions sealed to their source revision.",
+      "publisher": { "@id": "https://company.auraplatform.org/#organization" },
+      "brand": { "@id": "https://company.auraplatform.org/#organization" }
+    }
   ]
 }
 </script>
@@ -77,6 +147,7 @@
       <li><a href="ventures.html">Ventures</a></li>
       <li><a href="writing.html">Works</a></li>
       <li><a href="conversations.html">Conversations</a></li>
+      <li><a href="engagements.html">Engage</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
@@ -209,6 +280,7 @@
       <li><a href="writing.html">Works</a></li>
       <li><a href="conversations.html">Conversations</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="engagements.html">Engage</a></li>
       <li><a href="#" data-register-toggle aria-label="Toggle light or dark theme">Light / Dark</a></li>
     </ul>
   </div>
@@ -221,6 +293,8 @@
       </div>
       <ul class="footer__ecosystem-links">
         <li><a href="https://company.auraplatform.org" rel="noopener">Company</a></li>
+        <li><a href="identity.html">Identity</a></li>
+        <li><a href="authority.html">Authority</a></li>
         <li><a href="https://auraplatform.org" rel="noopener">Aura</a></li>
         <li><a href="https://orchestrateops.com" rel="noopener">Orchestrate</a></li>
         <li><a href="https://bajwawrites.com/" rel="noopener">Bajwa Writes</a></li>

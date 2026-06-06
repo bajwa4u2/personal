@@ -13,3 +13,11 @@
 # on /writing — which is the canonical link target in every internal
 # href.
 /works  /writing  301
+
+# /engage → /engagements
+#
+# The nav label is "Engage" but the canonical route is `/engagements`
+# (served from engagements.html, clean-URL rewritten by Pages). This 301
+# makes the implied URL bar match the label, mirroring the /works rule
+# above. Permanent so search engines consolidate on /engagements.
+/engage  /engagements  301
