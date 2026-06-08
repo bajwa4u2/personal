@@ -266,7 +266,19 @@ code, .mono {
 }
 
 @media (max-width: 767px) {
-  .nav__links { display: none; }
+  /* Mobile nav recovery — never hide the links (that traps the visitor on
+     the landing page). Let the inner wrap: the wordmark stays on the first
+     row and the links wrap visibly beneath it. All routes reachable, no
+     hamburger, same visual language. */
+  .nav__inner {
+    flex-wrap: wrap;
+    row-gap: var(--s3);
+  }
+  .nav__links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--s2) var(--s4);
+  }
 }
 
 /* Footer */
