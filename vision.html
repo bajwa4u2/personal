@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en" data-register="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vision 2050 — Beyond Artificial Intelligence — M S Bajwa</title>
+<meta name="description" content="Vision 2050 — a planned long-horizon initiative exploring the technological frontier beyond artificial intelligence: the infrastructure for humanity's next evolutionary leap.">
+<meta name="author" content="Muhammad Sakhawat Bajwa">
+<meta name="theme-color" content="#0E1326">
+
+<link rel="canonical" href="https://bajwa.auraplatform.org/vision">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="M S Bajwa">
+<meta property="og:title" content="Vision 2050 — Beyond Artificial Intelligence">
+<meta property="og:description" content="A planned long-horizon initiative exploring the technological frontier beyond artificial intelligence.">
+<meta property="og:url" content="https://bajwa.auraplatform.org/vision">
+<meta property="og:image" content="https://bajwa.auraplatform.org/assets/social/og-bajwa.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vision 2050 — Beyond Artificial Intelligence">
+<meta name="twitter:description" content="A planned long-horizon initiative exploring the technological frontier beyond artificial intelligence.">
+<meta name="twitter:image" content="https://bajwa.auraplatform.org/assets/social/og-bajwa.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&display=swap">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/sections.css">
+<link rel="stylesheet" href="styles/founder.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Vision 2050 — Beyond Artificial Intelligence",
+  "url": "https://bajwa.auraplatform.org/vision",
+  "description": "A planned long-horizon initiative exploring the technological frontier beyond artificial intelligence.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "M S Bajwa",
+    "url": "https://bajwa.auraplatform.org/"
+  },
+  "about": {
+    "@type": "Person",
+    "name": "Muhammad Sakhawat Bajwa",
+    "alternateName": "M S Bajwa",
+    "url": "https://bajwa.auraplatform.org/"
+  }
+}
+</script>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<style>
+  /* ── Vision 2050 — first-class page ───────────────────────────
+     A planned, long-horizon initiative. Premium, calm, civilizational.
+     Composed entirely from shared tokens: soft gradients, hairline
+     grids, structured cards, a quiet timeline, large typography. No
+     imagery, no sci-fi, no animation gimmicks, no hype. Serif carries
+     the two canonical doctrine statements; display carries structure;
+     body sans carries the program text. */
+
+  /* Hero — soft gradient + abstract horizon grid (CSS only). */
+  .v-hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(130% 80% at 50% 118%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 58%),
+      linear-gradient(180deg, var(--surface-soft) 0%, var(--bg) 72%);
+  }
+  .v-hero__grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(180deg, transparent 0 47px, color-mix(in srgb, var(--text-secondary) 9%, transparent) 47px 48px);
+    -webkit-mask-image: linear-gradient(180deg, transparent 4%, #000 78%);
+            mask-image: linear-gradient(180deg, transparent 4%, #000 78%);
+    opacity: 0.6;
+  }
+  .v-hero__inner { position: relative; z-index: 1; }
+  .v-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 var(--s5) 0;
+  }
+  .v-hero__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: clamp(40px, 7vw, 84px);
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    color: var(--text-primary);
+    margin: 0 0 var(--s8) 0;
+  }
+  .v-hero__lead {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.4;
+    color: var(--text-primary);
+    max-width: 30ch;
+    margin: 0 0 var(--s8) 0;
+  }
+  .v-hero__support {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 62ch;
+    margin: 0 0 var(--s10) 0;
+  }
+  .v-hero__statement {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: clamp(24px, 3.1vw, 38px);
+    letter-spacing: -0.015em;
+    line-height: 1.14;
+    color: var(--text-primary);
+    max-width: 20ch;
+    margin: 0;
+    padding-top: var(--s8);
+    border-top: 1px solid var(--border);
+  }
+
+  /* Shared section primitives. */
+  .v-heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: clamp(28px, 3.6vw, 44px);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin: 0 0 var(--s7) 0;
+    max-width: 22ch;
+  }
+  .v-body {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.3vw, 19px);
+    line-height: 1.72;
+    color: var(--text-secondary);
+    max-width: 64ch;
+    margin: 0 0 var(--s5) 0;
+  }
+  .v-body strong { color: var(--text-primary); font-weight: var(--weight-semibold); }
+  .v-emphasis {
+    font-family: var(--font-display);
+    font-weight: var(--weight-medium);
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.3;
+    color: var(--text-primary);
+    max-width: 32ch;
+    margin: var(--s7) 0 0 0;
+  }
+  /* A central question — set off in the literary voice. */
+  .v-question {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.4;
+    color: var(--text-primary);
+    border-left: 2px solid var(--accent);
+    padding-left: var(--s5);
+    margin: var(--s8) 0;
+    max-width: 32ch;
+  }
+
+  /* Capability domains — five structured cards. */
+  .v-domains {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s5);
+    margin-top: var(--s10);
+  }
+  @media (min-width: 640px) { .v-domains { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .v-domains { grid-template-columns: repeat(3, 1fr); } }
+  .v-domain {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface-soft);
+    padding: var(--s7);
+    transition: border-color var(--motion-fast) var(--ease-out);
+  }
+  .v-domain:hover { border-color: var(--accent); }
+  .v-domain__index {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.12em;
+    color: var(--accent);
+  }
+  .v-domain__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: var(--type-h4);
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .v-domain__body {
+    font-family: var(--font-body);
+    font-size: var(--type-body-small);
+    line-height: 1.62;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Time horizon — a quiet vertical timeline. */
+  .v-timeline {
+    margin-top: var(--s10);
+    border-left: 1px solid var(--border);
+  }
+  .v-stage {
+    position: relative;
+    padding: 0 0 var(--s12) var(--s8);
+  }
+  .v-stage:last-child { padding-bottom: 0; }
+  .v-stage::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 5px;
+    width: 9px;
+    height: 9px;
+    border-radius: var(--radius-full);
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .v-stage__period {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin: 0 0 var(--s2) 0;
+  }
+  .v-stage__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: var(--type-h3);
+    color: var(--text-primary);
+    margin: 0 0 var(--s3) 0;
+  }
+  .v-stage__focus {
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  /* Existing foundations — three present-day informants. */
+  .v-foundations {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--s6);
+    margin: var(--s8) 0 var(--s10) 0;
+  }
+  @media (min-width: 768px) { .v-foundations { grid-template-columns: repeat(3, 1fr); gap: var(--s8); } }
+  .v-foundation { border-top: 1px solid var(--border); padding-top: var(--s5); }
+  .v-foundation p {
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .v-foundation strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: var(--type-h4);
+    color: var(--text-primary);
+    margin: 0 0 var(--s2) 0;
+  }
+
+  /* Invitation. */
+  .v-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s5) var(--s6);
+    margin-top: var(--s10);
+  }
+  .v-cta-row .v-secondary {
+    font-family: var(--font-body);
+    font-size: var(--type-body-small);
+    color: var(--text-secondary);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color var(--motion-fast) var(--ease-out), color var(--motion-fast) var(--ease-out);
+  }
+  .v-cta-row .v-secondary:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Closing — large, centered, both doctrine statements. */
+  .v-closing {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background:
+      radial-gradient(120% 100% at 50% 0%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 56%),
+      var(--surface-soft);
+  }
+  .v-closing__inner { max-width: 900px; margin: 0 auto; }
+  .v-closing p {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-size: clamp(24px, 3.6vw, 42px);
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .v-closing p + p { margin-top: var(--s8); }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="nav__wordmark" href="index.html">M S Bajwa</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Story</a></li>
+      <li><a href="ventures.html">Ventures</a></li>
+      <li><a href="vision.html" aria-current="page">Vision 2050</a></li>
+      <li><a href="writing.html">Works</a></li>
+      <li><a href="conversations.html">Conversations</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- 1 · HERO -->
+<section class="section v-hero">
+  <div class="v-hero__grid" aria-hidden="true"></div>
+  <div class="container-narrow v-hero__inner">
+    <p class="v-eyebrow">Vision 2050</p>
+    <h1 class="v-hero__title">Beyond Artificial Intelligence</h1>
+    <p class="v-hero__lead">Artificial intelligence may be humanity's greatest invention, but it is not humanity's final destination.</p>
+    <p class="v-hero__support">For centuries, technology has expanded what human beings can do. The industrial age amplified strength. The digital age amplified communication. The AI age is amplifying intelligence. The next frontier is humanity itself.</p>
+    <p class="v-hero__statement">Create the infrastructure for humanity's next evolutionary leap.</p>
+  </div>
+</section>
+
+<!-- 2 · THE PREMISE -->
+<section class="section">
+  <div class="container-narrow">
+    <p class="section-label">The Premise</p>
+    <h2 class="v-heading">By 2050, intelligence may no longer be the primary constraint.</h2>
+    <p class="v-body">Artificial intelligence, autonomous systems, robotics, biotechnology, immersive environments, and planetary-scale computation may transform how humanity learns, works, creates, governs, heals, and evolves.</p>
+    <p class="v-body">The deeper question is not whether machines become more capable.</p>
+    <p class="v-emphasis">The deeper question is what human beings become when intelligence is abundant.</p>
+  </div>
+</section>
+
+<!-- 3 · THE GRAND CHALLENGE -->
+<section class="section">
+  <div class="container-narrow">
+    <p class="section-label">The Grand Challenge</p>
+    <h2 class="v-heading">One long-horizon question.</h2>
+    <p class="v-body">Vision 2050 is organized around one long-horizon question:</p>
+    <p class="v-question">How do we expand human capability in an age where intelligence is abundant?</p>
+    <p class="v-body">This question cannot be answered by software alone. It requires research, design, institutions, capital, ethics, imagination, and long-term commitment.</p>
+    <p class="v-body">The challenge is not to replace humanity.</p>
+    <p class="v-emphasis">The challenge is to expand humanity.</p>
+  </div>
+</section>
+
+<!-- 4 · CAPABILITY DOMAINS -->
+<section class="section">
+  <div class="container">
+    <div class="flagship-section__header">
+      <p class="section-label">Capability Domains</p>
+      <h2 class="flagship-section__title" style="font-size: clamp(28px, 3.6vw, 44px); max-width: 24ch;">Vision 2050 begins with five capability domains.</h2>
+    </div>
+    <div class="v-domains">
+      <article class="v-domain">
+        <p class="v-domain__index">01</p>
+        <h3 class="v-domain__title">Cognitive Expansion</h3>
+        <p class="v-domain__body">Learning, memory, reasoning, creativity, and decision-making beyond today's biological and educational limits.</p>
+      </article>
+      <article class="v-domain">
+        <p class="v-domain__index">02</p>
+        <h3 class="v-domain__title">Human-AI Symbiosis</h3>
+        <p class="v-domain__body">Systems that allow humans and intelligent machines to collaborate without surrendering agency, judgment, or responsibility.</p>
+      </article>
+      <article class="v-domain">
+        <p class="v-domain__index">03</p>
+        <h3 class="v-domain__title">Extended Presence</h3>
+        <p class="v-domain__body">The ability for one human being to operate across physical, digital, immersive, and agentic environments with continuity and accountability.</p>
+      </article>
+      <article class="v-domain">
+        <p class="v-domain__index">04</p>
+        <h3 class="v-domain__title">Longevity of Contribution</h3>
+        <p class="v-domain__body">Extending not only lifespan, but the period during which a human being can learn, create, lead, mentor, and contribute meaningfully.</p>
+      </article>
+      <article class="v-domain">
+        <p class="v-domain__index">05</p>
+        <h3 class="v-domain__title">Evolutionary Systems</h3>
+        <p class="v-domain__body">The institutions, technologies, and cultural frameworks that allow human evolution to become intentional rather than accidental.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · THE 2050 HORIZON -->
+<section class="section">
+  <div class="container-narrow">
+    <p class="section-label">The 2050 Horizon</p>
+    <h2 class="v-heading">A staged, century-scale horizon.</h2>
+    <div class="v-timeline">
+      <div class="v-stage">
+        <p class="v-stage__period">2025–2030</p>
+        <h3 class="v-stage__title">Understanding the AI transition</h3>
+        <p class="v-stage__focus">Mapping how artificial intelligence changes work, communication, learning, institutions, and human agency.</p>
+      </div>
+      <div class="v-stage">
+        <p class="v-stage__period">2030–2040</p>
+        <h3 class="v-stage__title">Human-AI collaboration</h3>
+        <p class="v-stage__focus">Designing systems where humans and intelligent machines operate together while preserving responsibility, trust, and human direction.</p>
+      </div>
+      <div class="v-stage">
+        <p class="v-stage__period">2040–2050</p>
+        <h3 class="v-stage__title">Expanded human capability</h3>
+        <p class="v-stage__focus">Exploring capability expansion across cognition, presence, longevity, creativity, and contribution.</p>
+      </div>
+      <div class="v-stage">
+        <p class="v-stage__period">2050+</p>
+        <h3 class="v-stage__title">Intentional human evolution</h3>
+        <p class="v-stage__focus">Building the infrastructure, institutions, and cultural models for humanity's next evolutionary leap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · WHY THIS EXISTS NOW -->
+<section class="section">
+  <div class="container-narrow">
+    <p class="section-label">Why This Exists Now</p>
+    <h2 class="v-heading">Before it hardens.</h2>
+    <p class="v-body">The current technology race is focused on artificial intelligence. That work matters. But the age after artificial intelligence will require a different kind of preparation.</p>
+    <p class="v-body">If intelligence becomes abundant, the most important questions may shift toward agency, meaning, capability, continuity, and human evolution.</p>
+    <p class="v-body">Vision 2050 exists to begin that preparation intentionally.</p>
+    <p class="v-emphasis">Not after the future arrives. Before it hardens.</p>
+  </div>
+</section>
+
+<!-- 7 · EXISTING FOUNDATIONS -->
+<section class="section">
+  <div class="container">
+    <div class="flagship-section__header">
+      <p class="section-label">Existing Foundations</p>
+      <h2 class="flagship-section__title" style="font-size: clamp(28px, 3.6vw, 44px); max-width: 26ch;">Not detached from current work.</h2>
+      <p class="flagship-section__lead">Vision 2050 is informed by years of building systems around communication, execution, accountability, continuity, and institutional representation. Current ventures provide practical foundations.</p>
+    </div>
+    <div class="v-foundations">
+      <div class="v-foundation">
+        <p><strong>Aura</strong> Explores verified institutional communication and trust.</p>
+      </div>
+      <div class="v-foundation">
+        <p><strong>Orchestrate</strong> Explores governed execution and operational coordination.</p>
+      </div>
+      <div class="v-foundation">
+        <p><strong>Bajwa Writes</strong> Preserves long-form thought, memory, and continuity.</p>
+      </div>
+    </div>
+    <p class="v-body" style="max-width: 64ch;">These are not Vision 2050 products. They are present-day foundations that inform the long-horizon thesis.</p>
+  </div>
+</section>
+
+<!-- 8 · INVITATION -->
+<section class="section">
+  <div class="container-narrow">
+    <p class="section-label">Invitation</p>
+    <h2 class="v-heading">A century-scale question, openly held.</h2>
+    <p class="v-body">Vision 2050 is intended to attract serious long-horizon participation. This includes researchers, investors, advisors, creative studios, futurists, technologists, institutions, and builders who are interested in the frontier beyond artificial intelligence.</p>
+    <p class="v-body">The invitation is not to join a product. The invitation is to help explore a century-scale question:</p>
+    <p class="v-question">What should humanity become after intelligence is no longer the limit?</p>
+    <div class="v-cta-row">
+      <a class="cta cta--primary" href="book.html">Open a Conversation</a>
+      <a class="v-secondary" href="contact.html">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · CLOSING STATEMENT -->
+<section class="section v-closing">
+  <div class="container v-closing__inner">
+    <p>Artificial intelligence may be humanity's greatest invention, but it is not humanity's final destination.</p>
+    <p>Create the infrastructure for humanity's next evolutionary leap.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 0 0 var(--s2) 0;">M S Bajwa</p>
+      <p style="font-family: var(--font-body); font-size: var(--type-body-small); color: var(--text-secondary); margin: 0;">Founder &amp; CEO, Aura Platform LLC.</p>
+    </div>
+    <ul class="footer__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="journey.html">Journey</a></li>
+      <li><a href="ventures.html">Ventures</a></li>
+      <li><a href="writing.html">Works</a></li>
+      <li><a href="conversations.html">Conversations</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/book">Schedule a Conversation</a></li>
+      <li><a href="#" data-register-toggle aria-label="Toggle light or dark theme">Light / Dark</a></li>
+    </ul>
+  </div>
+
+  <div class="footer__ecosystem" aria-label="Institutional continuity">
+    <div class="footer__ecosystem-inner">
+      <div class="footer__ecosystem-institution">
+        <p class="footer__ecosystem-wordmark"><a href="https://company.auraplatform.org" rel="noopener">Aura Platform LLC</a></p>
+        <p class="footer__ecosystem-caption">Discourse continuity · Operational continuity · Literary continuity</p>
+      </div>
+      <ul class="footer__ecosystem-links">
+        <li><a href="https://company.auraplatform.org" rel="noopener">Company</a></li>
+        <li><a href="https://auraplatform.org" rel="noopener">Aura</a></li>
+        <li><a href="https://orchestrateops.com" rel="noopener">Orchestrate</a></li>
+        <li><a href="https://bajwawrites.com/" rel="noopener">Bajwa Writes</a></li>
+        <li aria-current="page"><a href="index.html">Founder</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/scroll.js" defer></script>
+</body>
+</html>
