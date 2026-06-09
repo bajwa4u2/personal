@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en" data-register="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collaborate — M S Bajwa</title>
+<meta name="description" content="Collaborate — the single participation destination. Build together, advance the work, contribute expertise, strategic engagements, and the Vision 2050 frontier. Founders, investors, advisors, researchers, and institutions.">
+<meta name="author" content="Muhammad Sakhawat Bajwa">
+<meta name="theme-color" content="#0E1326">
+
+<link rel="canonical" href="https://bajwa.auraplatform.org/collaborate">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="M S Bajwa">
+<meta property="og:title" content="Collaborate — M S Bajwa">
+<meta property="og:description" content="Different people contribute in different ways. The single place to understand how you may participate in the work.">
+<meta property="og:url" content="https://bajwa.auraplatform.org/collaborate">
+<meta property="og:image" content="https://bajwa.auraplatform.org/assets/social/og-bajwa.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Collaborate — M S Bajwa">
+<meta name="twitter:description" content="Different people contribute in different ways.">
+<meta name="twitter:image" content="https://bajwa.auraplatform.org/assets/social/og-bajwa.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&display=swap">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/sections.css">
+<link rel="stylesheet" href="styles/founder.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Collaborate — M S Bajwa",
+  "url": "https://bajwa.auraplatform.org/collaborate",
+  "description": "The single participation destination — how different people may participate in the work.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "M S Bajwa",
+    "url": "https://bajwa.auraplatform.org/"
+  },
+  "about": {
+    "@type": "Person",
+    "name": "Muhammad Sakhawat Bajwa",
+    "alternateName": "M S Bajwa",
+    "url": "https://bajwa.auraplatform.org/"
+  }
+}
+</script>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<style>
+  /* ── Collaborate — the single participation destination ───────
+     Premium, calm, even-weight. Not a consulting, services, contact,
+     or hiring page. A clear map of the ways different people may
+     participate. Composed from shared tokens; structured panels, calm
+     outline CTAs, no aggressive sales language. */
+
+  .collab-body {
+    font-family: var(--font-body);
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 64ch;
+    margin: 0 0 var(--s6) 0;
+  }
+  /* The "ways" stanza — anaphoric, grouped as one unit. */
+  .collab-ways {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s2);
+    margin: 0 0 var(--s6) 0;
+    padding-left: var(--s6);
+    border-left: 1px solid var(--border);
+  }
+  .collab-ways p {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.45;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  /* Participation paths — structured panels. */
+  .collab-paths {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s6);
+    margin-top: var(--s8);
+  }
+  .collab-path {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface-soft);
+    padding: var(--s8);
+    transition: border-color var(--motion-fast) var(--ease-out);
+  }
+  .collab-path:hover { border-color: var(--accent); }
+  @media (min-width: 860px) {
+    .collab-path {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s10);
+      align-items: start;
+    }
+  }
+  .collab-path__index {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 var(--s3) 0;
+  }
+  .collab-path__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: clamp(24px, 2.8vw, 32px);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .collab-path__audience {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2);
+    padding: 0;
+    margin: var(--s5) 0 0 0;
+  }
+  .collab-path__audience li {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-small);
+    letter-spacing: 0.03em;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: 5px var(--s3);
+  }
+  .collab-path__detail { margin-top: var(--s6); }
+  @media (min-width: 860px) { .collab-path__detail { margin-top: 0; } }
+  .collab-path__body {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 48ch;
+    margin: 0 0 var(--s6) 0;
+  }
+
+  /* Closing — centered, simple. */
+  .collab-closing {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: var(--surface-soft);
+  }
+  .collab-closing__inner { max-width: 800px; margin: 0 auto; }
+  .collab-closing p {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-size: clamp(24px, 3.4vw, 40px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .collab-closing p + p { margin-top: var(--s6); }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__inner">
+    <a class="nav__wordmark" href="index.html">M S Bajwa</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="story.html">Story</a></li>
+      <li><a href="ventures.html">Ventures</a></li>
+      <li><a href="vision.html">Vision 2050</a></li>
+      <li><a href="writing.html">Works</a></li>
+      <li><a href="collaborate.html" aria-current="page">Collaborate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<header class="container">
+  <div class="page-header">
+    <p class="page-header__eyebrow">Participation</p>
+    <h1 class="page-header__title">Collaborate</h1>
+    <p class="page-header__lead">Different people contribute in different ways.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top: var(--s10);">
+  <div class="container-narrow">
+    <p class="collab-body">The work represented across this site spans ventures, institutions, long-horizon thinking, and practical execution.</p>
+    <div class="collab-ways">
+      <p>Some people participate by building.</p>
+      <p>Others by advising.</p>
+      <p>Others by investing.</p>
+      <p>Others by contributing expertise, perspective, research, or opportunity.</p>
+    </div>
+    <p class="collab-body">This page exists to make those paths clear.</p>
+  </div>
+</section>
+
+<!-- PARTICIPATION PATHS -->
+<section class="section" style="padding-top: 0;">
+  <div class="container">
+    <div class="collab-paths">
+
+      <!-- 1 · BUILD TOGETHER -->
+      <article class="collab-path" aria-labelledby="collab-build">
+        <div class="collab-path__head">
+          <p class="collab-path__index">01</p>
+          <h2 class="collab-path__title" id="collab-build">Build Together</h2>
+          <ul class="collab-path__audience">
+            <li>Founders</li>
+            <li>Operators</li>
+            <li>Venture Studios</li>
+            <li>Strategic Collaborators</li>
+          </ul>
+        </div>
+        <div class="collab-path__detail">
+          <p class="collab-path__body">For those interested in building ventures, exploring new opportunities, solving difficult problems, or creating long-term value through execution.</p>
+          <a class="cta cta--secondary" href="book.html">Start a Conversation</a>
+        </div>
+      </article>
+
+      <!-- 2 · ADVANCE THE WORK -->
+      <article class="collab-path" aria-labelledby="collab-advance">
+        <div class="collab-path__head">
+          <p class="collab-path__index">02</p>
+          <h2 class="collab-path__title" id="collab-advance">Advance The Work</h2>
+          <ul class="collab-path__audience">
+            <li>Investors</li>
+            <li>Family Offices</li>
+            <li>Strategic Capital</li>
+            <li>Institutional Supporters</li>
+          </ul>
+        </div>
+        <div class="collab-path__detail">
+          <p class="collab-path__body">For those interested in accelerating meaningful work through capital, introductions, strategic relationships, or long-term support.</p>
+          <a class="cta cta--secondary" href="book.html">Open a Conversation</a>
+        </div>
+      </article>
+
+      <!-- 3 · CONTRIBUTE EXPERTISE -->
+      <article class="collab-path" aria-labelledby="collab-expertise">
+        <div class="collab-path__head">
+          <p class="collab-path__index">03</p>
+          <h2 class="collab-path__title" id="collab-expertise">Contribute Expertise</h2>
+          <ul class="collab-path__audience">
+            <li>Advisors</li>
+            <li>Researchers</li>
+            <li>Specialists</li>
+            <li>Experienced Operators</li>
+          </ul>
+        </div>
+        <div class="collab-path__detail">
+          <p class="collab-path__body">For those who can challenge assumptions, contribute expertise, share experience, or help shape better outcomes.</p>
+          <a class="cta cta--secondary" href="contact.html">Connect</a>
+        </div>
+      </article>
+
+      <!-- 4 · STRATEGIC ENGAGEMENTS (absorbs the Engage page) -->
+      <article class="collab-path" aria-labelledby="collab-engagements">
+        <div class="collab-path__head">
+          <p class="collab-path__index">04</p>
+          <h2 class="collab-path__title" id="collab-engagements">Strategic Engagements</h2>
+        </div>
+        <div class="collab-path__detail">
+          <p class="collab-path__body">For organizations seeking focused collaboration through strategic advisory, architecture review, or custom engagements.</p>
+          <a class="cta cta--secondary" href="engagements.html">Explore Engagements</a>
+        </div>
+      </article>
+
+      <!-- 5 · VISION 2050 -->
+      <article class="collab-path" aria-labelledby="collab-vision">
+        <div class="collab-path__head">
+          <p class="collab-path__index">05</p>
+          <h2 class="collab-path__title" id="collab-vision">Vision 2050</h2>
+        </div>
+        <div class="collab-path__detail">
+          <p class="collab-path__body">Some conversations are not about ventures, products, or engagements. They are about the long-horizon future beyond artificial intelligence. Researchers, futurists, creative studios, institutions, and long-term thinkers interested in that exploration should begin there.</p>
+          <a class="cta cta--secondary" href="vision.html">Explore Vision 2050</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="section collab-closing">
+  <div class="container collab-closing__inner">
+    <p>The future is not built alone.</p>
+    <p>Neither is meaningful work.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <p style="font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 0 0 var(--s2) 0;">M S Bajwa</p>
+      <p style="font-family: var(--font-body); font-size: var(--type-body-small); color: var(--text-secondary); margin: 0;">Founder &amp; CEO, Aura Platform LLC.</p>
+    </div>
+    <ul class="footer__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="journey.html">Journey</a></li>
+      <li><a href="ventures.html">Ventures</a></li>
+      <li><a href="vision.html">Vision 2050</a></li>
+      <li><a href="writing.html">Works</a></li>
+      <li><a href="conversations.html">Conversations</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/book">Schedule a Conversation</a></li>
+      <li><a href="#" data-register-toggle aria-label="Toggle light or dark theme">Light / Dark</a></li>
+    </ul>
+  </div>
+
+  <div class="footer__ecosystem" aria-label="Institutional continuity">
+    <div class="footer__ecosystem-inner">
+      <div class="footer__ecosystem-institution">
+        <p class="footer__ecosystem-wordmark"><a href="https://company.auraplatform.org" rel="noopener">Aura Platform LLC</a></p>
+        <p class="footer__ecosystem-caption">Discourse continuity · Operational continuity · Literary continuity</p>
+      </div>
+      <ul class="footer__ecosystem-links">
+        <li><a href="https://company.auraplatform.org" rel="noopener">Company</a></li>
+        <li><a href="https://auraplatform.org" rel="noopener">Aura</a></li>
+        <li><a href="https://orchestrateops.com" rel="noopener">Orchestrate</a></li>
+        <li><a href="https://bajwawrites.com/" rel="noopener">Bajwa Writes</a></li>
+        <li aria-current="page"><a href="index.html">Founder</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/scroll.js" defer></script>
+</body>
+</html>
