@@ -7,3 +7,6 @@ Desktop.ini
 # Editors
 .vscode/
 .idea/
+
+# Design-QA screenshots (kept locally, not tracked)
+docs/_shots/
