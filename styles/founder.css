@@ -168,7 +168,7 @@ h1, h2, h3, h4,
 .founder-mast__name {
   font-family: var(--font-display);
   font-weight: var(--weight-semibold);
-  font-size: clamp(44px, 8vw, 84px);
+  font-size: clamp(40px, 6vw, 64px);
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -959,14 +959,28 @@ h1, h2, h3, h4,
 
 .page-header__title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 6vw, 64px);
+  font-size: clamp(26px, 4.2vw, 46px);
   font-weight: var(--weight-semibold);
-  letter-spacing: -0.015em;
-  line-height: 1.05;
+  letter-spacing: -0.012em;
+  line-height: 1.1;
   color: var(--text-primary);
   margin: 0 0 var(--s4) 0;
   max-width: 22ch;
   overflow-wrap: break-word;
+}
+
+/* Section pacing — the token default (96px top/bottom) reads as
+   oversized once applied to every section on a multi-page site.
+   Calmed uniformly (hero excluded — it keeps its own larger
+   rhythm); single-statement sections (a lone doctrine line, a
+   lone CTA, an empty-state) go tighter still. */
+.section:not(.section--hero) {
+  padding-top: var(--s16);
+  padding-bottom: var(--s16);
+}
+.section--tight {
+  padding-top: var(--s10);
+  padding-bottom: var(--s10);
 }
 
 .page-header__lead {
