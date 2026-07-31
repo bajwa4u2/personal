@@ -87,7 +87,7 @@ h1, h2, h3, h4,
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--s6);
-  padding-top: var(--s8);
+  padding-top: 0;
   align-items: start;
 }
 
@@ -95,7 +95,6 @@ h1, h2, h3, h4,
   .founder-hero {
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: var(--s10);
-    padding-top: var(--s10);
   }
 }
 
