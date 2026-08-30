@@ -57,3 +57,13 @@ The inventory found a product discovery dependency: the live Bajwa Writes
 `robots.txt` and `sitemap.xml` endpoints currently return SPA HTML rather than
 machine-readable policy/index documents. This is recorded for the product
 owner; no product implementation was changed here.
+
+The corrected Google ownership topology is three Domain properties, not one:
+`auraplatform.org` covers the company and founder subdomains, while
+`orchestrateops.com` and `bajwawrites.com` require separate properties. All
+three domains use Cloudflare DNS. The available Cloudflare identity has zone
+read but not DNS-write permission, and the scoped Search Console API token
+returns HTTP 403 for property listing/property-add, so the one-time ownership
+episode must establish DNS verification and owner/full-user access for the
+existing Google account before Codex resumes administration. Bing can then
+import the three verified Google properties.
