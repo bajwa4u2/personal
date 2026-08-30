@@ -1,0 +1,21 @@
+# Clean founder public-web repository boundary.
+# The legacy personal/bajwa estate is outside this repository and must never
+# be copied into or used as runtime source.
+
+node_modules/
+dist/
+.wrangler/
+.wrangler-*/
+.qa-*/
+qa-*.mjs
+*.local
+*.log
+*.zip
+
+# Local QA captures and retired supporting records are not production source.
+evidence/
+src/assets/packet/
+src/assets/og-bajwa.png
+src/robots.txt
+src/sitemap.xml
+capture-*.mjs

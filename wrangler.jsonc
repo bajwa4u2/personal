@@ -1,0 +1,45 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bajwa",
+  "main": "./worker.js",
+  "compatibility_date": "2026-08-30",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "bajwa.auraplatform.org", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/",
+      "/journey",
+      "/journey/*",
+      "/writing",
+      "/writing/*",
+      "/start-a-conversation",
+      "/start-a-conversation/*",
+      "/story",
+      "/story/*",
+      "/work",
+      "/work/*",
+      "/contact",
+      "/contact/*",
+      "/story.html",
+      "/ventures.html",
+      "/writing.html",
+      "/contact.html",
+      "/journey.html",
+      "/vision.html",
+      "/collaborate.html",
+      "/engagements.html",
+      "/book.html",
+      "/pitch.html",
+      "/conversations.html",
+      "/works",
+      "/engage"
+    ],
+    "html_handling": "none",
+    "not_found_handling": "404-page"
+  }
+}

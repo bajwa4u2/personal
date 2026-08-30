@@ -1,0 +1,29 @@
+{
+  "estate": "founder",
+  "canonicalBase": "https://bajwa.auraplatform.org",
+  "canonicalRoutes": ["/", "/journey", "/writing", "/start-a-conversation"],
+  "legacy": {
+    "301ToCanonical": {
+      "/story.html": "/journey",
+      "/ventures.html": "/journey",
+      "/writing.html": "/writing",
+      "/contact.html": "/start-a-conversation",
+      "/works": "/writing",
+      "/engage": "/start-a-conversation"
+    },
+    "301ToContext": {
+      "/journey.html": "/journey",
+      "/vision.html": "/writing",
+      "/collaborate.html": "/start-a-conversation",
+      "/engagements.html": "/start-a-conversation",
+      "/book.html": "/start-a-conversation"
+    },
+    "410Gone": ["/conversations.html"],
+    "technicalReferenceOnly": ["/identity.html", "/authority.html"]
+  },
+  "publicationRoutes": [],
+  "notes": [
+    "Legacy rules are recorded only; provider-specific redirects are not implemented in Phase 1.",
+    "Publication child routes require an approved real work before addition."
+  ]
+}

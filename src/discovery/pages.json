@@ -1,0 +1,11 @@
+{
+  "baseUrl": "https://bajwa.auraplatform.org",
+  "siteName": "M S Bajwa",
+  "defaultLocale": "en-US",
+  "pages": {
+    "/": {"title":"Muhammad Sakhawat Bajwa - Founder, builder, operator, author","description":"Muhammad Sakhawat Bajwa is building Aura Platform LLC and writing books.","type":"ProfilePage","entity":"founder","theme":"founder"},
+    "/journey": {"title":"Journey - M S Bajwa","description":"Pakistan Army Signals, Oman infrastructure operations, and the move into software.","type":"ProfilePage","entity":"founder","theme":"journey"},
+    "/writing": {"title":"Writing - M S Bajwa","description":"Questions, books and essays by Muhammad Sakhawat Bajwa.","type":"ProfilePage","entity":"founder","theme":"writing"},
+    "/start-a-conversation": {"title":"Start a conversation - M S Bajwa","description":"Write to Muhammad Sakhawat Bajwa about something he is building, writing or considering.","type":"ContactPage","entity":"founder","theme":"conversation"}
+  }
+}
