@@ -37,3 +37,23 @@ IndexNow status can be collected programmatically.
 
 Google's Indexing API was not used; these are ordinary public pages, not its
 supported job-posting or livestream content types.
+
+## Platform public-estate scope amendment
+
+The founder estate remains one of five legitimate public discovery hosts:
+`bajwa.auraplatform.org` is the canonical founder presence with four registry
+routes. The related public hosts are `company.auraplatform.org`,
+`auraplatform.org`, `orchestrateops.com`, and `bajwawrites.com`. Product
+application, operator, account-specific, private publication-studio, API and
+other user-specific routes are excluded from search propagation.
+
+The minimum Google ownership topology is the parent DNS domain property
+`auraplatform.org` for the company and founder subdomains, plus separate
+domain properties for `orchestrateops.com` and `bajwawrites.com`. Bing can use
+the same three-domain topology where its Google import/domain-property flow
+supports it.
+
+The inventory found a product discovery dependency: the live Bajwa Writes
+`robots.txt` and `sitemap.xml` endpoints currently return SPA HTML rather than
+machine-readable policy/index documents. This is recorded for the product
+owner; no product implementation was changed here.
