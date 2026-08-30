@@ -5,7 +5,8 @@
   "scripts": {
     "build": "node build.mjs",
     "verify": "node verify.mjs",
-    "deploy": "npm run build && npm run verify && wrangler deploy"
+    "deploy": "npm run build && npm run verify && wrangler deploy && npm run notify:indexnow",
+    "notify:indexnow": "node notify-indexnow.mjs"
   },
   "devDependencies": {
     "sharp": "^0.35.2",

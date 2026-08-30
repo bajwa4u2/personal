@@ -19,3 +19,4 @@ src/assets/og-bajwa.png
 src/robots.txt
 src/sitemap.xml
 capture-*.mjs
+.indexnow-state.json
