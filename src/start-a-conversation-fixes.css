@@ -1,0 +1,79 @@
+/* The current founder conversation page is intentionally a focused single-path surface. */
+.relationship-opening,
+.relationship-field,
+.relationship-actions,
+.relationship-context {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding-inline: clamp(1.25rem, 10vw, 10rem);
+}
+
+.relationship-opening {
+  min-height: clamp(560px, 64svh, 640px);
+  padding-top: clamp(8rem, 12vh, 10rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  align-items: center;
+}
+.relationship-opening__copy { max-width: 760px; }
+.relationship-opening__copy h1 {
+  max-width: 9ch;
+  font-size: clamp(4.25rem, 8vw, 8.5rem);
+  line-height: .9;
+}
+
+.relationship-field,
+.relationship-actions,
+.relationship-context {
+  padding-block: clamp(4.75rem, 8vw, 7.5rem);
+}
+.relationship-field__main { max-width: 760px; }
+.relationship-field h2,
+.relationship-context h2 { max-width: 12ch; }
+.relationship-field__main > p:not(.conversation-kicker) { max-width: 52ch; }
+
+.relationship-actions__intro {
+  width: 100%;
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2rem, 8vw, 8rem);
+}
+.relationship-actions__intro h2,
+.relationship-actions__intro p,
+.relationship-actions__intro a { grid-column: 1; }
+.relationship-actions__intro h2:nth-of-type(2),
+.relationship-actions__intro h2:nth-of-type(2) ~ p,
+.relationship-actions__intro h2:nth-of-type(2) ~ a { grid-column: 2; }
+.relationship-actions__intro h2 { align-self: end; }
+
+.relationship-context > div:first-child { max-width: 760px; }
+.relationship-context > div:first-child > p:last-child { max-width: 52ch; }
+
+@media (max-width: 800px) {
+  .relationship-opening,
+  .relationship-field,
+  .relationship-actions,
+  .relationship-context {
+    grid-template-columns: 1fr;
+    padding-inline: 1.25rem;
+  }
+  .relationship-opening { min-height: auto; padding-top: 7rem; padding-bottom: 4.5rem; align-items: start; }
+  .relationship-opening__copy h1 { max-width: 10ch; font-size: clamp(2.8rem, 12vw, 4.7rem); }
+  .relationship-field,
+  .relationship-actions,
+  .relationship-context { padding-block: 4.5rem; }
+  .relationship-actions__intro {
+    display: block;
+    max-width: 100%;
+  }
+  .relationship-actions__intro h2:nth-of-type(2),
+  .relationship-actions__intro h2:nth-of-type(2) ~ p,
+  .relationship-actions__intro h2:nth-of-type(2) ~ a { grid-column: auto; }
+}
+
+@media (max-width: 360px) {
+  .relationship-opening,
+  .relationship-field,
+  .relationship-actions,
+  .relationship-context { padding-inline: 1rem; }
+}
