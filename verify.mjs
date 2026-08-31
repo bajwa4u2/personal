@@ -8,7 +8,7 @@ const dist = join(root, 'dist');
 const manifest = JSON.parse(await readFile(join(root, 'route-manifest.json'), 'utf8'));
 const forbidden = /(?:company[\\/]website|personal[\\/]bajwa|\.\.[\\/]website|\.\.[\\/]bajwa)/i;
 const discovery = JSON.parse(await readFile(join(root, 'src', 'discovery', 'pages.json'), 'utf8'));
-const required = [...manifest.canonicalRoutes.map((route) => route === '/' ? 'index.html' : `${route.slice(1)}/index.html`), '404.html', 'site.css', 'shell.js', 'build-info.json', 'robots.txt', 'sitemap.xml'];
+const required = [...manifest.canonicalRoutes.map((route) => route === '/' ? 'index.html' : `${route.slice(1)}/index.html`), '404.html', 'site.css', 'shell.js', 'mobile-navigation.css', 'build-info.json', 'robots.txt', 'sitemap.xml'];
 
 if (manifest.canonicalRoutes.some((route) => ['/story', '/work', '/contact'].includes(route))) {
   throw new Error('Retired founder route remains canonical');
@@ -27,7 +27,7 @@ if (forbidden.test(worker)) throw new Error('Legacy runtime reference in worker.
 for (const route of manifest.canonicalRoutes) {
   const file = route === '/' ? 'index.html' : `${route.slice(1)}/index.html`;
   const html = await readFile(join(dist, file), 'utf8');
-  if (!html.includes('role="banner"') || !html.includes('<main') || !html.includes('role="contentinfo"')) {
+  if (!html.includes('role="banner"') || !html.includes('<main') || !html.includes('role="contentinfo"') || !html.includes('mobile-navigation.css')) {
     throw new Error(`Missing shell landmarks in ${file}`);
   }
   if (!html.includes(`data-canonical-route="${route}"`)) throw new Error(`Missing route marker in ${file}`);

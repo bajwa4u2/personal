@@ -9,17 +9,19 @@ const src = join(root, 'src');
 const dist = join(root, 'dist');
 const founderClosing = await readFile(join(src, 'shared', 'founder-closing.html'), 'utf8');
 const sharedNavigation = await readFile(join(root, '..', '..', 'public-web', 'shared', 'mobile-navigation.js'), 'utf8');
+const sharedNavigationStyles = await readFile(join(root, '..', '..', 'public-web', 'shared', 'mobile-navigation.css'), 'utf8');
 const discovery = JSON.parse(await readFile(join(src, 'discovery', 'pages.json'), 'utf8'));
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await cp(src, dist, { recursive: true });
 await writeFile(join(dist, 'shell.js'), sharedNavigation);
+await writeFile(join(dist, 'mobile-navigation.css'), sharedNavigationStyles);
 
 for (const file of ['index.html', 'journey/index.html', 'writing/index.html', 'start-a-conversation/index.html']) {
   const target = join(dist, file);
   const html = await readFile(target, 'utf8');
-  const normalized = html.replace('<!-- FOUNDER_CLOSING -->', founderClosing.trim()).replace(/<footer class="founder-footer"[\s\S]*?<\/footer>/, founderClosing.trim());
+  const normalized = html.replace('<!-- FOUNDER_CLOSING -->', founderClosing.trim()).replace(/<footer class="founder-footer"[\s\S]*?<\/footer>/, founderClosing.trim()).replace('</head>', '<link rel="stylesheet" href="/mobile-navigation.css"></head>');
   await writeFile(target, normalized);
 }
 
