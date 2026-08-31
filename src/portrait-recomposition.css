@@ -1,0 +1,51 @@
+/* Founder signature portrait: presentation-only treatment around the verified source image. */
+.home-hero {
+  grid-template-columns: minmax(0, .92fr) minmax(24rem, .98fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  background: radial-gradient(circle at 76% 34%, rgba(89,130,133,.14), transparent 28%), linear-gradient(120deg, #10171e 0%, #10171e 47%, #1d2b31 47.2%, #21373a 100%);
+}
+
+.hero-copy { position: relative; z-index: 2; }
+.hero-portrait { position: relative; z-index: 1; align-self: center; transform: translateY(-1.5rem); }
+.portrait-frame {
+  position: relative;
+  aspect-ratio: .82;
+  max-height: min(76svh, 760px);
+  background: #737a7b;
+  border: 1px solid rgba(232,228,220,.28);
+  clip-path: polygon(6% 0, 100% 0, 100% 91%, 88% 100%, 0 100%, 0 8%);
+  box-shadow: 1.5rem 1.5rem 0 rgba(143,189,181,.12), 0 2rem 4rem rgba(0,0,0,.18);
+}
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  inset: 1rem -1rem -1rem 1rem;
+  z-index: -1;
+  border: 1px solid rgba(143,189,181,.34);
+  clip-path: polygon(6% 0, 100% 0, 100% 91%, 88% 100%, 0 100%, 0 8%);
+}
+.portrait-frame::after {
+  background: linear-gradient(135deg, rgba(16,23,30,.08), transparent 42%), linear-gradient(180deg, transparent 78%, rgba(16,23,30,.12));
+}
+.portrait-frame img { object-position: center 17%; filter: saturate(.9) contrast(1.01); }
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .home-hero { grid-template-columns: minmax(18rem, .94fr) minmax(18rem, .9fr); gap: 3rem; }
+  .hero-portrait { transform: translateY(-.75rem); }
+}
+
+@media (max-width: 800px) {
+  .home-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 7.5rem; padding-bottom: 3.5rem; background: linear-gradient(135deg, #10171e 0%, #10171e 55%, #1d2b31 55.2%, #21373a 100%); }
+  .hero-copy { max-width: 21rem; }
+  .hero-portrait { width: min(100%, 22rem); justify-self: end; margin: 0; transform: translateY(0); }
+  .portrait-frame { aspect-ratio: .82; max-height: none; clip-path: polygon(5% 0, 100% 0, 100% 94%, 90% 100%, 0 100%, 0 7%); box-shadow: .8rem .8rem 0 rgba(143,189,181,.12), 0 1.5rem 3rem rgba(0,0,0,.16); }
+  .portrait-frame::before { inset: .65rem 0 0 .65rem; }
+  .portrait-frame img { object-position: center 15%; }
+}
+
+@media (max-width: 380px) {
+  .home-hero { padding-top: 7rem; }
+  .hero-portrait { width: calc(100% - .35rem); }
+}
+
+@media (prefers-reduced-motion: reduce) { .hero-portrait { transform: none; } }
