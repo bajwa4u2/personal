@@ -1,11 +1,21 @@
-# bajwa.auraplatform.org — founder identity site
+> **RETIRED — this repository no longer serves bajwa.auraplatform.org.**
+> The live founder site is built and deployed from `personal/public-web`
+> (Cloudflare Worker `bajwa`). Every page below is either 301'd away or
+> returns 404 in production, by design. Read `RETIRED.md` before acting on
+> anything here.
+>
+> The extra routes in this repository are **not** authority to restore them.
+> Do not deploy this estate, and do not copy its pages into the live one
+> without a product decision.
 
-Canonical founder, operator, executive, author, and platform architect identity surface for
+# bajwa.auraplatform.org — founder identity site (retired estate)
+
+Founder, operator, executive, author, and platform architect identity surface for
 **Muhammad Sakhawat Bajwa** — founder and CEO of Aura Platform LLC.
 
-Lives at `personal/bajwa/` in the codebase and is served as `https://bajwa.auraplatform.org/`
-in production. The subdomain root maps to this directory; the codebase path is *not* part of
-public URLs.
+Lives at `personal/bajwa/` in the codebase. It **was** served at
+`https://bajwa.auraplatform.org/`; it is not any more. The description below
+documents this estate as it was built, and is kept as reference material.
 
 ## Layout
 
