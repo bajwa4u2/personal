@@ -1,8 +1,11 @@
-> **RETIRED — this directory no longer serves bajwa.auraplatform.org.**
+> **RETIRED — this repository no longer serves bajwa.auraplatform.org.**
 > The live founder site is built and deployed from `personal/public-web`
-> (Cloudflare Worker `bajwa`), and every page below is 301'd away or returns
-> 404 in production. Read `RETIRED.md` before acting on anything here.
-> Do not deploy this estate and do not copy its pages into the live one
+> (Cloudflare Worker `bajwa`). Every page below is either 301'd away or
+> returns 404 in production, by design. Read `RETIRED.md` before acting on
+> anything here.
+>
+> The extra routes in this repository are **not** authority to restore them.
+> Do not deploy this estate, and do not copy its pages into the live one
 > without a product decision.
 
 # bajwa.auraplatform.org — founder identity site (retired estate)
