@@ -4,7 +4,7 @@ const from = allowedFrom.has(params.get('from')) ? params.get('from') : '';
 const email = document.querySelector('#email-link');
 const proposal = document.querySelector('#proposal-continuation');
 const proposalOpen = document.querySelector('[data-proposal-open]');
-const subjects = {home:'Starting a conversation',journey:'A conversation about the journey',writing:'A conversation about writing',aura:'A conversation about Aura',orchestrate:'A conversation about Orchestrate','bajwa-writes':'A conversation about Bajwa Writes',company:'A conversation about Aura Platform',founder:'Starting a conversation'};
+const subjects = {home:'Starting a conversation',journey:'A conversation about the journey',writing:'A conversation about writing',aura:'A conversation about Aura',orchestrate:'A conversation about Orchestrate','bajwa-writes':'A conversation about Colophon',company:'A conversation about Aura Platform',founder:'Starting a conversation'};
 if (from && email) email.href = `mailto:msbajwa@auraplatform.org?subject=${encodeURIComponent(subjects[from])}`;
 proposalOpen?.addEventListener('click', () => {
   const open = proposal.hidden;
