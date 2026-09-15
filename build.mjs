@@ -28,7 +28,7 @@ for (const file of ['index.html', 'journey/index.html', 'writing/index.html', 's
 const esc = (v) => String(v).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const json = (v) => JSON.stringify(v).replaceAll('<','\\u003c');
 const themes = {
-  founder: {bg:'#101a20',fg:'#eee9df',accent:'#8ebcb4',label:'M S BAJWA'},
+  founder: {bg:'#101a20',fg:'#eee9df',accent:'#8ebcb4',label:'MUHAMMAD SAKHAWAT BAJWA'},
   journey: {bg:'#e5e1d6',fg:'#273335',accent:'#568a83',label:'JOURNEY'},
   writing: {bg:'#1a2b30',fg:'#f3eee5',accent:'#8ebcb4',label:'WRITING'},
   conversation: {bg:'#19282d',fg:'#eef1e9',accent:'#8ebcb4',label:'START A CONVERSATION'}
@@ -36,7 +36,7 @@ const themes = {
 const personId = `${discovery.baseUrl}/#person`;
 const companyId = 'https://company.auraplatform.org/#organization';
 const schema = (route, page, url) => ({'@context':'https://schema.org','@graph':[
-  {'@type':'Person','@id':personId,'name':'Muhammad Sakhawat Bajwa','url':discovery.baseUrl+'/' ,'jobTitle':'Founder, builder, operator and author','worksFor':{'@id':companyId},'authorOf':[{'@type':'Book','name':'The Burden of Knowing'},{'@type':'Book','name':'The Edge of Knowing'},{'@type':'Book','name':'The Origin of You'}]},
+  {'@type':'Person','@id':personId,'name':'Muhammad Sakhawat','alternateName':['Muhammad Sakhawat Bajwa','M S Bajwa'],'url':discovery.baseUrl+'/' ,'jobTitle':'Founder, builder, operator and author','worksFor':{'@id':companyId},'authorOf':[{'@type':'Book','name':'The Burden of Knowing'},{'@type':'Book','name':'The Edge of Knowing'},{'@type':'Book','name':'The Origin of You'}]},
   {'@type':page.type,'@id':`${url}#page`,'url':url,'name':page.title,'description':page.description,'isPartOf':{'@id':`${discovery.baseUrl}/#website`},'mainEntity':{'@id':personId}},
   {'@type':'WebSite','@id':`${discovery.baseUrl}/#website`,'name':discovery.siteName,'url':discovery.baseUrl+'/' ,'publisher':{'@id':personId}}
 ]});
