@@ -1,0 +1,2 @@
+# Source is LF everywhere, so a fresh checkout rebuilds byte-identical to what is live.
+* text=auto eol=lf
