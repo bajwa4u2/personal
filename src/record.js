@@ -17,9 +17,9 @@
     var tabs = $$('.lens button', machine), scenes = $$('.scene', machine);
     var foot = $('[data-foot]', machine), go = $('[data-go]', machine);
     var meta = {
-      decide: ['Orchestrate: AI prepares, the owner decides.', '/orchestrate', 'See Orchestrate →'],
-      say: ['Aura: institutions answer in their own name.', '/aura', 'See Aura →'],
-      make: ['Colophon: the work keeps its author.', '/colophon', 'See Colophon →']
+      decide: ['Orchestrate: AI prepares, the owner decides.', 'https://company.auraplatform.org/orchestrate', 'See Orchestrate →'],
+      say: ['Aura: institutions answer in their own name.', 'https://company.auraplatform.org/aura', 'See Aura →'],
+      make: ['Colophon: the work keeps its author.', 'https://company.auraplatform.org/colophon', 'See Colophon →']
     };
     var order = ['decide', 'say', 'make'], idx = 0, auto = !reduce, timer;
     var appr = $('[data-approve]', machine), ad = $('[data-dattr]', machine), adt = $('[data-dattr] span', machine);
@@ -159,7 +159,7 @@
     var froms = { aura: 'Aura', orchestrate: 'Orchestrate', 'bajwa-writes': 'Colophon', colophon: 'Colophon', company: 'the company page', founder: 'the founder', home: 'the home page', films: 'the films' };
     var D = {
       product: { tone: 'orc', s: 'Putting a product to work', body: ['We are ', ['org', 'your business or institution'], ' in ', ['city', 'your city'], '. We would like to use ', ['which', 'Orchestrate, Aura or Colophon'], ' to ', ['want', 'what you want it to do'], '.'],
-        direct: [['Start with Orchestrate', 'https://orchestrateops.com'], ['Get Aura', '/get?app=aura'], ['Apply to write on Colophon', 'https://bajwawrites.com/apply']] },
+        direct: [['Start with Orchestrate', 'https://orchestrateops.com'], ['Get Aura', 'https://company.auraplatform.org/get?app=aura'], ['Apply to write on Colophon', 'https://bajwawrites.com/apply']] },
       partnership: { tone: 'aura', s: 'A partnership', body: ['I am writing from ', ['org', 'your organisation'], '. We reach ', ['reach', 'who you reach'], '. The partnership I have in mind is ', ['shape', 'its shape'], '.'], direct: [] },
       capital: { tone: 'ink', s: 'A capital conversation', body: ['I invest ', ['how', 'through a fund, or as an individual'], ' in ', ['stage', 'stages and areas'], '. What drew me to Aura Platform is ', ['why', 'what caught your eye'], '.'], direct: [] },
       principal: { tone: 'col', s: 'The founding commercial role', body: ['I have sold ', ['what', 'what you sold'], ' to ', ['whom', 'whom'], ', and built partnerships with ', ['partners', 'whom'], '. I want this role because ', ['why', 'your reason'], '.'], direct: [] },

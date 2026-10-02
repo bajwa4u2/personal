@@ -98,3 +98,12 @@ console.log(`Verified ${manifest.canonicalRoutes.length} founder canonical route
   if (/fetch\(|XMLHttpRequest|sendBeacon/.test(js)) throw new Error('record.js must not send anything anywhere');
   console.log('Verified the Record surface: no timeline, M S Bajwa, تمام, the letter to msbajwa@, ways back to the company.');
 }
+
+// record.js is shared with sites that have no /get, /orchestrate… pages of their own (2 Oct 2026:
+// "Get Aura" pointed at bajwa.…/get and 404'd). Company paths in it must be absolute.
+{
+  const js = await readFile(join(dist, 'record.js'), 'utf8');
+  const relative = [...js.matchAll(/'(\/(?:get|orchestrate|aura|colophon|company|films)\b[^']*)'/g)].map((m) => m[1]);
+  if (relative.length) throw new Error(`record.js links to company pages by relative path: ${relative.join(', ')}`);
+  console.log('Verified record.js links to company pages absolutely.');
+}
