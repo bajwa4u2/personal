@@ -57,3 +57,13 @@ for (const [legacy, target] of Object.entries({ '/story': '/journey', '/work': '
   if (!worker.includes(`'${legacy}': '${target}'`)) throw new Error(`Missing compatibility redirect ${legacy}`);
 }
 console.log(`Verified ${manifest.canonicalRoutes.length} founder canonical routes, isolated output, landmarks, and legacy isolation.`);
+
+// The closed mobile menu sits off-screen; its backdrop shadow must not (2026-10-02: every phone page
+// was under a 42% veil because the closed panel still cast its full-screen shadow).
+{
+  const nav = await readFile(join(dist, 'mobile-navigation.css'), 'utf8');
+  const closed = nav.match(/\{[^{}]*translateX\(-105%\)[^{}]*\}/)?.[0] ?? '';
+  if (!closed) throw new Error('Closed mobile menu rule not found');
+  if (/100vw 0 0 100vw/.test(closed)) throw new Error('Closed mobile menu casts the full-screen backdrop');
+  console.log('Verified the closed mobile menu casts no backdrop.');
+}
