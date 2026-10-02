@@ -28,10 +28,10 @@ for (const file of ['index.html', 'journey/index.html', 'writing/index.html', 's
 const esc = (v) => String(v).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const json = (v) => JSON.stringify(v).replaceAll('<','\\u003c');
 const themes = {
-  founder: {bg:'#101a20',fg:'#eee9df',accent:'#8ebcb4',label:'MUHAMMAD SAKHAWAT BAJWA'},
-  journey: {bg:'#e5e1d6',fg:'#273335',accent:'#568a83',label:'JOURNEY'},
-  writing: {bg:'#1a2b30',fg:'#f3eee5',accent:'#8ebcb4',label:'WRITING'},
-  conversation: {bg:'#19282d',fg:'#eef1e9',accent:'#8ebcb4',label:'START A CONVERSATION'}
+  founder: {bg:'#F3F4EF',fg:'#11252A',accent:'#2F6F6A',label:'FOUNDER · BUILDER · OPERATOR · AUTHOR'},
+  journey: {bg:'#F3F4EF',fg:'#11252A',accent:'#2F6F6A',label:'JOURNEY'},
+  writing: {bg:'#F3F4EF',fg:'#11252A',accent:'#8A5A2B',label:'WRITING'},
+  conversation: {bg:'#F3F4EF',fg:'#11252A',accent:'#2F6F6A',label:'START A CONVERSATION'}
 };
 const personId = `${discovery.baseUrl}/#person`;
 const companyId = 'https://company.auraplatform.org/#organization';
@@ -40,7 +40,9 @@ const schema = (route, page, url) => ({'@context':'https://schema.org','@graph':
   {'@type':page.type,'@id':`${url}#page`,'url':url,'name':page.title,'description':page.description,'isPartOf':{'@id':`${discovery.baseUrl}/#website`},'mainEntity':{'@id':personId}},
   {'@type':'WebSite','@id':`${discovery.baseUrl}/#website`,'name':discovery.siteName,'url':discovery.baseUrl+'/' ,'publisher':{'@id':personId}}
 ]});
-const og = (page, theme) => `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="${theme.bg}"/><path d="M0 520C300 420 430 610 760 360S1080 180 1260 230" fill="none" stroke="${theme.accent}" stroke-width="2" opacity=".55"/><text x="84" y="112" fill="${theme.accent}" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="5">${esc(theme.label)}</text><text x="84" y="300" fill="${theme.fg}" font-family="Georgia,serif" font-size="62">${esc(page.title.split(' - ')[0])}</text><text x="84" y="390" fill="${theme.fg}" opacity=".75" font-family="Arial,sans-serif" font-size="24">${esc(page.description)}</text><text x="84" y="548" fill="${theme.fg}" opacity=".58" font-family="Arial,sans-serif" font-size="18">Muhammad Sakhawat Bajwa</text></svg>`;
+// Share-card text has no wrapping of its own: break the description into lines of about n characters.
+const wrap = (text, n) => text.split(' ').reduce((lines, w) => { const last = lines[lines.length - 1]; if (last && (last + ' ' + w).length <= n) lines[lines.length - 1] = last + ' ' + w; else lines.push(w); return lines; }, []);
+const og = (page, theme) => `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="${theme.bg}"/><path d="M0 520C300 420 430 610 760 360S1080 180 1260 230" fill="none" stroke="${theme.accent}" stroke-width="2" opacity=".55"/><text x="84" y="112" fill="${theme.accent}" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="5">${esc(theme.label)}</text><text x="84" y="300" fill="${theme.fg}" font-family="Georgia,serif" font-size="62">${esc(page.title.split(' - ')[0])}</text>${wrap(page.description, 62).slice(0, 3).map((line, i) => `<text x="84" y="${380 + i * 34}" fill="${theme.fg}" opacity=".75" font-family="Arial,sans-serif" font-size="24">${esc(line)}</text>`).join('')}<text x="84" y="548" fill="${theme.fg}" opacity=".58" font-family="Arial,sans-serif" font-size="18">bajwa.auraplatform.org</text></svg>`;
 for (const [route,page] of Object.entries(discovery.pages)) {
   const file = join(dist, route === '/' ? 'index.html' : `${route.slice(1)}/index.html`);
   let html = await readFile(file, 'utf8'); const url = `${discovery.baseUrl}${route === '/' ? '/' : route}`; const theme = themes[page.theme]; const asset = `/assets/og/${route === '/' ? 'home' : route.slice(1)}.png`;

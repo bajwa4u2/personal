@@ -1,0 +1,132 @@
+/* Founder site on the Record surface: same paper, type and fit rules as the company site.
+   His own accent is a deep teal; product colour appears only inside framed stages. */
+*,*::before,*::after{box-sizing:border-box}
+body.founder{margin:0}
+.founder{--tl:#2F6F6A}
+.founder .tl{color:var(--tl);font-style:italic}
+.founder .tlbg{background:var(--tl)!important;border-color:var(--tl)!important;color:#fff!important}
+.skip-link{position:fixed;left:1rem;top:-4rem;z-index:50;background:var(--ink);color:var(--paper);padding:.7rem 1rem;border-radius:8px}
+.skip-link:focus{top:1rem}
+.fh-head .rh-brand img{border-radius:50%;object-fit:cover;width:28px;height:28px}
+
+/* hero portrait */
+.portrait{margin:0;justify-self:end;width:min(100%,clamp(260px,46svh,420px))}
+.portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border-radius:18px;box-shadow:0 30px 60px -30px rgba(17,37,42,.45)}
+.portrait figcaption{margin-top:12px;font-size:13.5px;color:var(--muted);line-height:1.45}
+.portrait figcaption b{display:block;color:var(--ink);font-weight:600}
+
+/* what I carry: three lessons, each into its product */
+.carry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:clamp(14px,3svh,28px)}
+.cc{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(14px,2.4svh,22px);transition:transform .2s,box-shadow .2s}
+.cc:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(17,37,42,.4)}
+.cc h3{margin:6px 0 0;font:400 clamp(1.25rem,min(1.9vw,3.4svh),1.6rem)/1.15 var(--serif)}
+.cc p{margin:0;color:var(--muted);font-size:clamp(14px,min(1.15vw,2.3svh),15.5px);line-height:1.5}
+.cc .into{margin-top:auto;padding-top:6px;display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--ink)}
+.cc .into img{border-radius:5px}
+.cc .into b{font-weight:600}
+.mini-stage{border-radius:12px;height:clamp(78px,13svh,112px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:12px 14px;overflow:hidden}
+.mini-stage.s-aura{background:var(--aura-stage);color:var(--aura-ink)}
+.mini-stage.s-orc{background:var(--orc-stage);color:var(--orc-ink)}
+.mini-stage.s-col{background:var(--col-stage);color:var(--col)}
+.bubble{align-self:flex-start;background:var(--aura-card);border:1px solid var(--aura-line);border-radius:12px;padding:5px 11px;font-size:15px}
+.bubble[lang="ur"]{font-family:"Noto Nastaliq Urdu",var(--serif);line-height:2;padding:2px 12px}
+.bubble.me{align-self:flex-end;background:var(--gold);color:#1a1408;border:0;font-size:12px;font-weight:600}
+.path{display:flex;gap:6px;flex-wrap:wrap}
+.path i{font:500 12px/1 var(--sans);font-style:normal;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid rgba(19,48,46,.15)}
+.path i.d{color:var(--orc)} .path i.n{background:var(--orc);color:#fff;border-color:var(--orc)}
+.ed{font:400 14px/1.6 var(--mono);color:var(--col)} .ed b{font-weight:500} .ed span{opacity:.6}
+
+/* words in their own scripts */
+.words{display:flex;flex-wrap:wrap;gap:10px 12px;align-content:center;background:var(--card)}
+.word{display:inline-flex;flex-direction:column;gap:2px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.word b{font:400 clamp(1.25rem,min(2vw,3.6svh),1.75rem)/1.25 var(--serif);color:var(--ink)}
+.word[lang="ur"] b{font-family:"Noto Nastaliq Urdu",var(--serif);line-height:1.9}
+.word[lang="ar"] b{font-family:"Noto Naskh Arabic",var(--serif)}
+.word small{font:500 10.5px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* in my own words */
+.quote{margin:clamp(10px,2svh,18px) 0 10px;font:400 clamp(1.8rem,min(4vw,7svh),3.4rem)/1.12 var(--serif);max-width:24ch;color:var(--ink)}
+
+/* books */
+.books3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);align-items:end}
+.bk{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink)}
+.bk img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:4px;box-shadow:0 22px 40px -22px rgba(0,0,0,.6);transition:transform .25s}
+.bk:hover img{transform:translateY(-6px)}
+.bk b{font:400 1.05rem/1.2 var(--serif)} .bk small{font:500 10.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.books3:not(.wide){max-width:clamp(300px,52svh,520px);justify-self:end}
+.books3.wide{margin-top:clamp(14px,3svh,28px);max-width:clamp(420px,88svh,900px)}
+
+/* journey */
+.jnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(14px,3svh,26px)}
+.jnav a{padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);text-decoration:none;color:var(--ink);font-size:14.5px}
+.jnav a:hover{border-color:var(--tl);color:var(--tl)}
+.chapter .split{align-items:center}
+.into-line{font:500 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.into-line a{color:var(--tl);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--tl) 40%,transparent)}
+.place{background:var(--card);min-height:clamp(200px,40svh,360px);display:flex;flex-direction:column;justify-content:space-between}
+.place .pl{font:400 clamp(1.6rem,min(3.4vw,6svh),2.8rem)/1.1 var(--serif);color:var(--ink)}
+.place .pw{display:flex;flex-wrap:wrap;gap:10px}
+.place::before{display:none}
+.record section[id]{scroll-margin-top:64px}
+
+/* closing band */
+.close-sec .h2{max-width:22ch}
+
+/* the founder footer on paper */
+.founder .founder-footer{display:grid;grid-template-columns:1fr auto;gap:18px 32px;padding:32px clamp(16px,4vw,56px);border-top:1px solid var(--line);background:var(--paper);color:var(--muted);font-size:13.5px}
+.founder .founder-footer__identity{display:flex;flex-direction:column;gap:4px}
+.founder .footer-name{color:var(--ink);font:400 1.15rem/1.2 var(--serif);text-decoration:none}
+.founder .founder-footer nav{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:flex-start}
+.founder .founder-footer a{color:var(--ink);text-decoration:none}
+.founder .founder-footer small{grid-column:1/-1;color:var(--muted)}
+
+@media (max-width:999px){
+  .portrait{justify-self:start;width:min(100%,320px)}
+  .books3:not(.wide){justify-self:start}
+}
+@media (max-width:640px){
+  .carry{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:-16px;padding:0 16px 8px}
+  .carry::-webkit-scrollbar{display:none}
+  .cc{flex:0 0 84%;scroll-snap-align:start}
+  .portrait{width:min(70%,260px)}
+  .founder .founder-footer{grid-template-columns:1fr}
+  .quote{font-size:1.9rem}
+}
+@media (max-height:700px) and (min-width:1000px){
+  .founder .hero{padding-block:12px 18px}
+  .cc{gap:6px} .cc p{font-size:13.5px}
+}
+
+/* refinements after the first walk */
+.portrait img{aspect-ratio:auto;height:clamp(240px,calc(100svh - 64px - 150px),560px);width:auto;max-width:100%}
+.portrait{width:auto}
+.mini-stage{height:clamp(92px,15svh,124px)}
+.bubble[lang="ur"]{font-size:14px;line-height:1.8}
+.words{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));align-content:center}
+/* journey: the word is the picture */
+.place{justify-content:center;gap:clamp(10px,2svh,18px)}
+.place .pl{font:500 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.place .pw{gap:14px 22px;align-items:flex-end}
+.place .word{border:0;background:none;padding:0}
+.place .word b{font-size:clamp(2.6rem,min(6vw,11svh),5.2rem);line-height:1.15;color:var(--tl)}
+.place .word[lang="ur"] b{line-height:1.8}
+.place .word small{font-size:11px}
+.place .pw:has(.word + .word) .word b{font-size:clamp(1.9rem,min(3.6vw,7svh),3.2rem)}
+.books-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:end;margin-top:clamp(14px,3svh,28px)}
+.books-row .books3.wide{margin-top:0}
+@media (max-width:999px){.books-row{grid-template-columns:1fr}}
+@media (max-width:640px){.portrait img{height:auto;width:100%;max-height:52svh;object-fit:cover}.portrait{width:min(72%,280px)}}
+/* Nastaliq needs room above and below */
+.word[lang="ur"] b{line-height:2.2!important;padding-top:.15em}
+.word small{margin-top:4px}
+.place .word[lang="ur"] small{margin-top:10px}
+.words .word{overflow:visible}
+.words::before{grid-column:1/-1;margin-bottom:2px}
+/* footer: three columns to the company standard; no name block, no people */
+.founder .founder-footer{display:block}
+.ff-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:760px}
+.ff-cols nav{display:flex!important;flex-direction:column;gap:9px}
+.ff-cols b{font:500 11px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--tl);margin-bottom:4px}
+.ff-cols a{font-size:14px}
+.founder .founder-footer small{display:block;margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px}
+@media (max-width:640px){.ff-cols{grid-template-columns:1fr 1fr}.ff-cols nav:last-child{grid-column:1/-1}}

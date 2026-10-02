@@ -67,3 +67,34 @@ console.log(`Verified ${manifest.canonicalRoutes.length} founder canonical route
   if (/100vw 0 0 100vw/.test(closed)) throw new Error('Closed mobile menu casts the full-screen backdrop');
   console.log('Verified the closed mobile menu casts no backdrop.');
 }
+
+// ── The Record (2 Oct 2026): founder decisions that must not drift ──────────────
+{
+  const strip = (html) => html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<head[\s\S]*?<\/head>/, ' ').replace(/<[^>]+>/g, ' ');
+  for (const route of manifest.canonicalRoutes) {
+    const file = route === '/' ? 'index.html' : `${route.slice(1)}/index.html`;
+    const html = await readFile(join(dist, file), 'utf8');
+    const text = strip(html);
+    for (const sheet of ['record.css', 'founder.css', 'record.js']) if (!html.includes(`/${sheet}`)) throw new Error(`${route} misses ${sheet}`);
+    // Countries and languages, never a timeline: the only year a visitor sees is the copyright.
+    const years = text.replace(/© \d{4}/g, '').match(/\b(19[5-9]\d|20[0-4]\d)\b/g);
+    if (years && route !== '/start-a-conversation') throw new Error(`Timeline year on ${route}: ${years.join(', ')}`);
+    // M S Bajwa is the visible name on this site; the full names live only in structured data.
+    if (/Muhammad Sakhawat/.test(text)) throw new Error(`Full name visible on ${route}; this site uses M S Bajwa`);
+    if (!text.includes('M S Bajwa')) throw new Error(`${route} does not carry the name M S Bajwa`);
+    if (!html.includes('"alternateName":["Muhammad Sakhawat Bajwa","M S Bajwa"]')) throw new Error(`${route} lost the name bridge in structured data`);
+    if (!html.includes('href="https://company.auraplatform.org"') || !html.includes('href="/start-a-conversation"')) throw new Error(`${route} lost its way to the company or to the letter`);
+    if (/Legal name/.test(text)) throw new Error(`${route} footer carries the long legal line again`);
+    if (!/© 2026 M S Bajwa/.test(text)) throw new Error(`${route} footer copyright missing`);
+  }
+  const journey = await readFile(join(dist, 'journey', 'index.html'), 'utf8');
+  if (journey.includes('وعد')) throw new Error('The Gulf chapter uses the dictionary word; the founder chose تمام');
+  if (!journey.includes('تمام')) throw new Error('The Gulf chapter lost تمام');
+  if (/public account does not fill/i.test(journey)) throw new Error('The old gap sentence returned to Journey');
+  const convo = await readFile(join(dist, 'start-a-conversation', 'index.html'), 'utf8');
+  if (!convo.includes('data-mailto="msbajwa@auraplatform.org"')) throw new Error('The letter does not reach msbajwa@');
+  for (const intent of ['product', 'authored', 'partnership', 'capital', 'principal', 'unsure']) if (!convo.includes(`data-intent="${intent}"`)) throw new Error(`Letter reason missing: ${intent}`);
+  const js = await readFile(join(dist, 'record.js'), 'utf8');
+  if (/fetch\(|XMLHttpRequest|sendBeacon/.test(js)) throw new Error('record.js must not send anything anywhere');
+  console.log('Verified the Record surface: no timeline, M S Bajwa, تمام, the letter to msbajwa@, ways back to the company.');
+}
