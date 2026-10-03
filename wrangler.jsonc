@@ -37,7 +37,8 @@
       "/pitch.html",
       "/conversations.html",
       "/works",
-      "/engage"
+      "/engage",
+      "/assets/video/*"
     ],
     "html_handling": "none",
     "not_found_handling": "404-page"

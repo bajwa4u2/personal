@@ -33,6 +33,34 @@ export default {
       documentUrl.search = '';
       return env.ASSETS.fetch(new Request(documentUrl, { method: request.method }));
     }
+    if (path.startsWith('/assets/video/')) return serveVideo(request, env);
     return env.ASSETS.fetch(request);
   }
 };
+
+// Static assets ignore Range, but Safari (iPhone) will only stream video that answers Range
+// requests with 206 Partial Content. Serve the asset ourselves and slice it.
+async function serveVideo(request, env) {
+  const asset = await env.ASSETS.fetch(new Request(new URL(request.url).toString(), { method: 'GET' }));
+  if (!asset.ok) return asset;
+  const headers = new Headers(asset.headers);
+  headers.set('accept-ranges', 'bytes');
+  headers.set('cache-control', 'public, max-age=86400');
+  const range = request.headers.get('range');
+  const buf = await asset.arrayBuffer();
+  const size = buf.byteLength;
+  const m = range && /^bytes=(\d*)-(\d*)$/.exec(range.trim());
+  if (!m) {
+    headers.set('content-length', String(size));
+    return new Response(request.method === 'HEAD' ? null : buf, { status: 200, headers });
+  }
+  let start = m[1] === '' ? Math.max(0, size - Number(m[2])) : Number(m[1]);
+  let end = m[1] === '' || m[2] === '' ? size - 1 : Math.min(Number(m[2]), size - 1);
+  if (start >= size || start > end) {
+    headers.set('content-range', `bytes */${size}`);
+    return new Response(null, { status: 416, headers });
+  }
+  headers.set('content-range', `bytes ${start}-${end}/${size}`);
+  headers.set('content-length', String(end - start + 1));
+  return new Response(request.method === 'HEAD' ? null : buf.slice(start, end + 1), { status: 206, headers });
+}

@@ -107,3 +107,11 @@ console.log(`Verified ${manifest.canonicalRoutes.length} founder canonical route
   if (relative.length) throw new Error(`record.js links to company pages by relative path: ${relative.join(', ')}`);
   console.log('Verified record.js links to company pages absolutely.');
 }
+
+// Video on the founder site must answer Range requests (iPhone Safari will not play it otherwise).
+{
+  const w = await readFile(join(root, 'worker.js'), 'utf8');
+  const cfg = await readFile(join(root, 'wrangler.jsonc'), 'utf8');
+  if (!cfg.includes('"/assets/video/*"') || !/status: 206/.test(w) || !/content-range/.test(w)) throw new Error('Video assets are not served with Range support');
+  console.log('Verified video assets answer Range requests.');
+}

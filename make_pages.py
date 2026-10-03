@@ -132,10 +132,20 @@ home = f'''<section class="hero"><div class="wrap split">
   <div class="stage s-co words" data-name="Words I have lived in" data-needs-scripts>{URDU}{MALAY}{ARABIC}{WORLD}{ENGLISH}</div>
 </div></section>
 
-<section class="sec quote-sec"><div class="wrap">
-  <div class="ey">In my own words</div>
-  <blockquote class="quote">Let the machine do the work, and keep the person who owns it <em class="tl">in charge of it.</em></blockquote>
-  <p class="quiet"><a href="{COMPANY}/company#letter" rel="noopener">Read my letter on the company site →</a></p>
+<section class="sec quote-sec" id="own-words"><div class="wrap split">
+  <div>
+    <div class="ey">In my own words</div>
+    <blockquote class="quote">Let the machine do the work, and keep the person who owns it <em class="tl">in charge of it.</em></blockquote>
+    <p class="lede">A short film: where I come from, and why I built three products around one answer.</p>
+    <p class="quiet"><a href="{COMPANY}/company#letter" rel="noopener">Read my letter on the company site →</a></p>
+  </div>
+  <figure class="own-film">
+    <video controls playsinline preload="none" poster="/assets/video/in-my-own-words-poster.jpg" width="720" height="1280">
+      <source src="/assets/video/in-my-own-words.mp4" type="video/mp4">
+      <track kind="captions" src="/assets/video/in-my-own-words.en.vtt" srclang="en" label="English" default>
+    </video>
+    <figcaption>In my own words · 1 min 42 s</figcaption>
+  </figure>
 </div></section>
 
 <section class="sec"><div class="wrap split">
